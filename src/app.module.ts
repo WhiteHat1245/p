@@ -50,6 +50,7 @@ import { EggInventory } from './Core Models/EggInventory';
 import { Receipt } from './Core Models/Receipt';
 import { PoultryModule } from './poultry/poultry.module';
 import { SaleModule } from './sale/sale.module';
+import { CustomerModule } from './customer/customer.module';
 
 @Module({
   imports: [
@@ -73,6 +74,7 @@ import { SaleModule } from './sale/sale.module';
     }),
     PoultryModule,
     SaleModule,
+    CustomerModule,
 
   ],
   controllers: [AppController],
