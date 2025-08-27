@@ -52,6 +52,7 @@ import { PoultryModule } from './poultry/poultry.module';
 import { SaleModule } from './sale/sale.module';
 import { CustomerModule } from './customer/customer.module';
 import { EmployeeModule } from './employee/employee.module';
+import { FarmModule } from './farm/farm.module';
 
 @Module({
   imports: [
@@ -77,6 +78,7 @@ import { EmployeeModule } from './employee/employee.module';
     SaleModule,
     CustomerModule,
     EmployeeModule,
+    FarmModule,
 
   ],
   controllers: [AppController],
