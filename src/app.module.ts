@@ -56,6 +56,8 @@ import { FarmModule } from './farm/farm.module';
 import { PurchaseModule } from './purchase/purchase.module';
 import { PurchaseDetail } from './Core Models/purchase-detail';
 import { SupplierModule } from './supplier/supplier.module';
+import { HealthLogModule } from './health-log/health-log.module';
+import { BreedModule } from './breed/breed.module';
 
 @Module({
   imports: [
@@ -84,6 +86,8 @@ import { SupplierModule } from './supplier/supplier.module';
     FarmModule,
     PurchaseModule,
     SupplierModule,
+    HealthLogModule,
+    BreedModule,
 
   ],
   controllers: [AppController],
