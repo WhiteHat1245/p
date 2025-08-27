@@ -53,6 +53,9 @@ import { SaleModule } from './sale/sale.module';
 import { CustomerModule } from './customer/customer.module';
 import { EmployeeModule } from './employee/employee.module';
 import { FarmModule } from './farm/farm.module';
+import { PurchaseModule } from './purchase/purchase.module';
+import { PurchaseDetail } from './Core Models/purchase-detail';
+import { SupplierModule } from './supplier/supplier.module';
 
 @Module({
   imports: [
@@ -71,7 +74,7 @@ import { FarmModule } from './farm/farm.module';
         Supplier, Customer, User, Role, Employee, Expense, PaymentMethod, Payment, Debt, 
         GeneralLedger, ChartOfAccounts, VaccinationSchedule, HealthLog, Attendance, Payroll, 
         DailyReport, PerformanceMetric, Equipment, MaintenanceSchedule, BiosecurityLog, 
-        QualityControl, FinancialTransaction, PoultryBatch, EggInventory, Receipt
+        QualityControl, FinancialTransaction, PoultryBatch, EggInventory, Receipt,PurchaseDetail
       ],
     }),
     PoultryModule,
@@ -79,6 +82,8 @@ import { FarmModule } from './farm/farm.module';
     CustomerModule,
     EmployeeModule,
     FarmModule,
+    PurchaseModule,
+    SupplierModule,
 
   ],
   controllers: [AppController],

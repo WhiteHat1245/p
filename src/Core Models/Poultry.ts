@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'ty
 import { Coop } from './Coop';
 import { Breed } from './Breed';
 import { HealthLog } from './HealthLog';
+import { PurchaseDetail } from './purchase-detail';
 
 @Entity()
 export class Poultry {
@@ -25,6 +26,9 @@ export class Poultry {
 
   @OneToMany(() => HealthLog, (healthLog: HealthLog) => healthLog.Poultry)
   HealthLogs: HealthLog[];
+
+  @OneToMany(() => PurchaseDetail, (purchaseDetail: PurchaseDetail) => purchaseDetail.Poultry)
+  PurchaseDetails: PurchaseDetail[];
 }
 
 
