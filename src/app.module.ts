@@ -58,6 +58,7 @@ import { PurchaseDetail } from './Core Models/purchase-detail';
 import { SupplierModule } from './supplier/supplier.module';
 import { HealthLogModule } from './health-log/health-log.module';
 import { BreedModule } from './breed/breed.module';
+import { VaccineModule } from './vaccine/vaccine.module';
 
 @Module({
   imports: [
@@ -88,6 +89,7 @@ import { BreedModule } from './breed/breed.module';
     SupplierModule,
     HealthLogModule,
     BreedModule,
+    VaccineModule,
 
   ],
   controllers: [AppController],
