@@ -19,4 +19,5 @@ export class Supplier {
 
   @OneToMany(() => PurchaseReturn, (purchaseReturn: PurchaseReturn) => purchaseReturn.Supplier)
   PurchaseReturns: PurchaseReturn[];
+    Debts: any;
 }

@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Customer } from './Customer';
 import { Supplier } from './Supplier';
 import { Sale } from './Sale ';
@@ -33,8 +33,11 @@ export class Debt {
   
     @Column({ type: 'date', nullable: true })
     DueDate: Date;
-  
-    @ManyToOne(() => Customer, (customer) => customer.Debts)
+
+    @Column({ default: false })
+    isPaid: boolean;
+    
+    @ManyToOne(() => Customer, (customer) => customer.debts)
     Customer: Customer;
   
     @ManyToOne(() => Supplier, (supplier) => supplier.Debts)
@@ -45,5 +48,9 @@ export class Debt {
   
     @ManyToOne(() => Purchase, (purchase) => purchase.Debts)
     Purchase: Purchase;
+
+     @ManyToOne(() => Customer, (customer) => customer.debts)
+     @JoinColumn({ name: 'customerId' })
+    customer: Customer;
 
 }
