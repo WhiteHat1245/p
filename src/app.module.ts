@@ -59,6 +59,9 @@ import { SupplierModule } from './supplier/supplier.module';
 import { HealthLogModule } from './health-log/health-log.module';
 import { BreedModule } from './breed/breed.module';
 import { VaccineModule } from './vaccine/vaccine.module';
+import { DailyReportModule } from './DailyReport/DailyReport.Module';
+import { DebtModule } from './Debt/debt.module';
+import { EggInventoryModule } from './EggInventory/EggInventory.Module';
 
 @Module({
   imports: [
@@ -90,7 +93,9 @@ import { VaccineModule } from './vaccine/vaccine.module';
     HealthLogModule,
     BreedModule,
     VaccineModule,
-
+    DailyReportModule,
+    DebtModule, 
+    EggInventoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
