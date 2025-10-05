@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, OneToOne, ManyToOne } from 'typeorm';
 import { SalesReturn } from './SalesReturn';
+import { SaleDetail } from './sale-detail';
 @Entity()
 export class SalesReturnDetail { 
     @PrimaryGeneratedColumn()
