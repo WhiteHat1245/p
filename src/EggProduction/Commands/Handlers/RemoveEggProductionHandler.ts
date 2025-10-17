@@ -6,7 +6,9 @@ import { RemoveEggProductionCommand } from '../Impi/RemoveEggProductionCommand';
 import { EggProduction } from 'src/Core Models/EggProduction';
 
 @CommandHandler(RemoveEggProductionCommand)
-export class RemoveEggProductionHandler implements ICommandHandler<RemoveEggProductionCommand> {
+export class RemoveEggProductionHandler
+  implements ICommandHandler<RemoveEggProductionCommand>
+{
   constructor(
     @InjectRepository(EggProduction)
     private readonly eggProductionRepository: Repository<EggProduction>,
@@ -17,7 +19,9 @@ export class RemoveEggProductionHandler implements ICommandHandler<RemoveEggProd
     const result = await this.eggProductionRepository.delete(id);
 
     if (result.affected === 0) {
-      throw new NotFoundException(`Egg Production record with ID ${id} not found`);
+      throw new NotFoundException(
+        `Egg Production record with ID ${id} not found`,
+      );
     }
   }
 }

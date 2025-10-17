@@ -14,7 +14,10 @@ export class UpdateCoopHandler implements ICommandHandler<UpdateCoopCommand> {
 
   async execute(command: UpdateCoopCommand): Promise<Coop> {
     const { id, updateCoopDto } = command;
-    const coop = await this.coopRepository.preload({ CoopID: id, ...updateCoopDto });
+    const coop = await this.coopRepository.preload({
+      CoopID: id,
+      ...updateCoopDto,
+    });
     if (!coop) {
       throw new NotFoundException(`Coop with ID ${id} not found`);
     }

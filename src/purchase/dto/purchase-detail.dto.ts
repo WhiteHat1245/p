@@ -1,7 +1,6 @@
 import { IsNumber, IsNotEmpty } from 'class-validator';
 import { Purchase } from 'src/Core Models/Purchase ';
 
-
 export class PurchaseDetailDto {
   @IsNumber()
   @IsNotEmpty()
@@ -14,5 +13,5 @@ export class PurchaseDetailDto {
   @IsNumber()
   @IsNotEmpty()
   unitCost: number;
-    Purchase: Purchase;
+  Purchase: Purchase;
 }

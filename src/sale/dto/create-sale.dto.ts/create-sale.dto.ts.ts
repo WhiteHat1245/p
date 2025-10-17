@@ -1,7 +1,12 @@
-import { IsDateString, IsNumber, IsNotEmpty, IsArray, ValidateNested } from 'class-validator';
+import {
+  IsDateString,
+  IsNumber,
+  IsNotEmpty,
+  IsArray,
+  ValidateNested,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 import { SaleDetailDto } from '../sale-detail.dto';
-
 
 export class CreateSaleDto {
   @IsNumber()

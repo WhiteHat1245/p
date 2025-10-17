@@ -5,7 +5,9 @@ import { CreateSalesReturnCommand } from '../Impl/createSalesReturnDto';
 import { SalesReturn } from 'src/Core Models/SalesReturn';
 import { SalesReturnDetail } from 'src/Core Models/SalesReturnDetail';
 @CommandHandler(CreateSalesReturnCommand)
-export class CreateSalesReturnHandler implements ICommandHandler<CreateSalesReturnCommand> {
+export class CreateSalesReturnHandler
+  implements ICommandHandler<CreateSalesReturnCommand>
+{
   constructor(
     @InjectRepository(SalesReturn)
     private readonly salesReturnRepository: Repository<SalesReturn>,
@@ -22,19 +24,19 @@ export class CreateSalesReturnHandler implements ICommandHandler<CreateSalesRetu
     const savedReturn = await this.salesReturnRepository.save(salesReturn);
 
     // 2. إنشاء تفاصيل الإرجاع وحفظها
-    const returnDetails = Details.map(detailDto => {
-        return this.salesReturnDetailRepository.create({
-            ...detailDto,
-            SalesReturnID: savedReturn.ReturnID, // ربط التفاصيل بالمعرف الرئيسي
-        });
+    const returnDetails = Details.map((detailDto) => {
+      return this.salesReturnDetailRepository.create({
+        ...detailDto,
+        SalesReturnID: savedReturn.ReturnID, // ربط التفاصيل بالمعرف الرئيسي
+      });
     });
 
     await this.salesReturnDetailRepository.save(returnDetails);
 
     // 3. جلب الكيان الرئيسي مع التفاصيل للعرض
     return (await this.salesReturnRepository.findOne({
-        where: { ReturnID: savedReturn.ReturnID },
-        relations: ['SalesReturnDetails'],
+      where: { ReturnID: savedReturn.ReturnID },
+      relations: ['SalesReturnDetails'],
     }))!;
   }
 }

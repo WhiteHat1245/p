@@ -7,7 +7,9 @@ import { UpdateSlaughterhouseCommand } from '../impl/update-slaughterhouse.comma
 import { Slaughterhouse } from 'src/Core Models/slaughterhouse';
 
 @CommandHandler(UpdateSlaughterhouseCommand)
-export class UpdateSlaughterhouseHandler implements ICommandHandler<UpdateSlaughterhouseCommand> {
+export class UpdateSlaughterhouseHandler
+  implements ICommandHandler<UpdateSlaughterhouseCommand>
+{
   constructor(
     @InjectRepository(Slaughterhouse)
     private readonly slaughterhouseRepository: Repository<Slaughterhouse>,
@@ -15,7 +17,10 @@ export class UpdateSlaughterhouseHandler implements ICommandHandler<UpdateSlaugh
 
   async execute(command: UpdateSlaughterhouseCommand): Promise<Slaughterhouse> {
     const { id, updateSlaughterhouseDto } = command;
-    const slaughterhouse = await this.slaughterhouseRepository.preload({ SlaughterhouseID: id, ...updateSlaughterhouseDto });
+    const slaughterhouse = await this.slaughterhouseRepository.preload({
+      SlaughterhouseID: id,
+      ...updateSlaughterhouseDto,
+    });
     if (!slaughterhouse) {
       throw new NotFoundException(`Slaughterhouse with ID ${id} not found`);
     }

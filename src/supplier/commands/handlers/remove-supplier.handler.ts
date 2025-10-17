@@ -7,7 +7,9 @@ import { RemoveSupplierCommand } from '../impl/remove-supplier.command';
 import { Supplier } from 'src/Core Models/Supplier';
 
 @CommandHandler(RemoveSupplierCommand)
-export class RemoveSupplierHandler implements ICommandHandler<RemoveSupplierCommand> {
+export class RemoveSupplierHandler
+  implements ICommandHandler<RemoveSupplierCommand>
+{
   constructor(
     @InjectRepository(Supplier)
     private readonly supplierRepository: Repository<Supplier>,

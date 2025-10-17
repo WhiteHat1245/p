@@ -6,7 +6,9 @@ import { EggInventory } from 'src/Core Models/EggInventory';
 import { GetEggInventoriesQuery } from '../Impi/GetEggInventoriesQuery';
 
 @QueryHandler(GetEggInventoriesQuery)
-export class GetEggInventoriesHandler implements IQueryHandler<GetEggInventoriesQuery> {
+export class GetEggInventoriesHandler
+  implements IQueryHandler<GetEggInventoriesQuery>
+{
   constructor(
     @InjectRepository(EggInventory)
     private readonly eggInventoryRepository: Repository<EggInventory>,

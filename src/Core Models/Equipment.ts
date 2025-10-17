@@ -19,6 +19,9 @@ export class Equipment {
   @Column({ length: 50 })
   Status: string;
 
-  @OneToMany(() => MaintenanceSchedule, (schedule: MaintenanceSchedule) => schedule.Equipment)
+  @OneToMany(
+    () => MaintenanceSchedule,
+    (schedule: MaintenanceSchedule) => schedule.Equipment,
+  )
   MaintenanceSchedules: MaintenanceSchedule[];
 }

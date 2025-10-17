@@ -1,4 +1,3 @@
 export class GetTotalDebtQuery {
-
-    constructor(public readonly customerId:number){}
+  constructor(public readonly customerId: number) {}
 }

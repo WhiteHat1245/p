@@ -7,7 +7,9 @@ import { RemoveCustomerCommand } from '../impl/remove-customer.command';
 import { Customer } from 'src/Core Models/Customer';
 
 @CommandHandler(RemoveCustomerCommand)
-export class RemoveCustomerHandler implements ICommandHandler<RemoveCustomerCommand> {
+export class RemoveCustomerHandler
+  implements ICommandHandler<RemoveCustomerCommand>
+{
   constructor(
     @InjectRepository(Customer)
     private readonly customerRepository: Repository<Customer>,

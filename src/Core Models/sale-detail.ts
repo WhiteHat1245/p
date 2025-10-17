@@ -1,7 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Poultry } from './Poultry';
 import { Sale } from './Sale ';
-
 
 @Entity()
 export class SaleDetail {

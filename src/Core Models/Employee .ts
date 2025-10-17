@@ -1,5 +1,12 @@
 // في ملف: src/employee/employee.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToOne,
+  JoinColumn,
+  OneToMany,
+} from 'typeorm';
 import { User } from './User';
 import { Expense } from './Expense';
 import { Attendance } from './Attendance';

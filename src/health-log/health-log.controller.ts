@@ -10,7 +10,6 @@ import {
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 
-
 // استيراد الأوامر والاستعلامات
 import { CreateHealthLogCommand } from './commands/impl/create-health-log.command';
 import { UpdateHealthLogCommand } from './commands/impl/update-health-log.command';
@@ -23,7 +22,10 @@ import { UpdateHealthLogDto } from './dto/update-health-log.dto.ts/update-health
 
 @Controller('health-log')
 export class HealthLogController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateHealthLogDto): Promise<HealthLog> {

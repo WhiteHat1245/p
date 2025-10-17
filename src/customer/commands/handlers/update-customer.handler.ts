@@ -7,7 +7,9 @@ import { UpdateCustomerCommand } from '../impl/update-customer.command';
 import { Customer } from 'src/Core Models/Customer';
 
 @CommandHandler(UpdateCustomerCommand)
-export class UpdateCustomerHandler implements ICommandHandler<UpdateCustomerCommand> {
+export class UpdateCustomerHandler
+  implements ICommandHandler<UpdateCustomerCommand>
+{
   constructor(
     @InjectRepository(Customer)
     private readonly customerRepository: Repository<Customer>,
@@ -15,7 +17,10 @@ export class UpdateCustomerHandler implements ICommandHandler<UpdateCustomerComm
 
   async execute(command: UpdateCustomerCommand): Promise<Customer> {
     const { id, updateCustomerDto } = command;
-    const customer = await this.customerRepository.preload({ CustomerID: id, ...updateCustomerDto });
+    const customer = await this.customerRepository.preload({
+      CustomerID: id,
+      ...updateCustomerDto,
+    });
     if (!customer) {
       throw new NotFoundException(`Customer with ID ${id} not found`);
     }

@@ -7,7 +7,9 @@ import { RemovePoultryCommand } from '../impl/remove-poultry.command';
 import { Poultry } from '../../../Core Models/Poultry';
 
 @CommandHandler(RemovePoultryCommand)
-export class RemovePoultryHandler implements ICommandHandler<RemovePoultryCommand> {
+export class RemovePoultryHandler
+  implements ICommandHandler<RemovePoultryCommand>
+{
   constructor(
     @InjectRepository(Poultry)
     private readonly poultryRepository: Repository<Poultry>,

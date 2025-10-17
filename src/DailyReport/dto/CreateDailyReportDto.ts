@@ -1,7 +1,12 @@
-import { IsDateString, IsNotEmpty, IsOptional, IsString, Length } from "class-validator";
+import {
+  IsDateString,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  Length,
+} from 'class-validator';
 
-export class CreateDailyReportDto{
-
+export class CreateDailyReportDto {
   @IsDateString()
   @IsNotEmpty()
   ReportDate: Date;

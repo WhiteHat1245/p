@@ -7,7 +7,9 @@ import { RemoveEmployeeCommand } from '../impl/remove-employee.command';
 import { Employee } from 'src/Core Models/Employee ';
 
 @CommandHandler(RemoveEmployeeCommand)
-export class RemoveEmployeeHandler implements ICommandHandler<RemoveEmployeeCommand> {
+export class RemoveEmployeeHandler
+  implements ICommandHandler<RemoveEmployeeCommand>
+{
   constructor(
     @InjectRepository(Employee)
     private readonly employeeRepository: Repository<Employee>,

@@ -14,7 +14,11 @@ import { GetFeedHandler } from './queries/handlers/get-feed.handler';
 import { GetFeedsHandler } from './queries/handlers/get-feeds.handler';
 import { Feed } from 'src/Core Models/Feed';
 
-const CommandHandlers = [CreateFeedHandler, UpdateFeedHandler, RemoveFeedHandler];
+const CommandHandlers = [
+  CreateFeedHandler,
+  UpdateFeedHandler,
+  RemoveFeedHandler,
+];
 const QueryHandlers = [GetFeedHandler, GetFeedsHandler];
 
 @Module({

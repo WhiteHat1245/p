@@ -14,7 +14,9 @@ export class GetDebtHandler implements IQueryHandler<GetDebtQuery> {
 
   async execute(query: GetDebtQuery): Promise<Debt> {
     const { debtId } = query;
-    const debt = await this.debtRepository.findOne({ where: { DebtID: debtId } });
+    const debt = await this.debtRepository.findOne({
+      where: { DebtID: debtId },
+    });
     if (!debt) {
       throw new NotFoundException(`Debt with ID ${debtId} not found`);
     }

@@ -14,7 +14,11 @@ import { RemovePoultryHandler } from './commands/handlers/remove-poultry.handler
 import { GetPoultryHandler } from './queries/handlers/get-poultry.handler';
 import { GetPoultriesHandler } from './queries/handlers/get-poultries.handler';
 
-const CommandHandlers = [CreatePoultryHandler, UpdatePoultryHandler, RemovePoultryHandler];
+const CommandHandlers = [
+  CreatePoultryHandler,
+  UpdatePoultryHandler,
+  RemovePoultryHandler,
+];
 const QueryHandlers = [GetPoultryHandler, GetPoultriesHandler];
 
 @Module({

@@ -14,7 +14,10 @@ const CommandHandlers = [CreateSalesReturnHandler, RemoveSalesReturnHandler];
 const QueryHandlers = [GetSalesReturnsHandler, GetSalesReturnsHandler];
 
 @Module({
-  imports: [TypeOrmModule.forFeature([SalesReturn, SalesReturnDetail]), CqrsModule],
+  imports: [
+    TypeOrmModule.forFeature([SalesReturn, SalesReturnDetail]),
+    CqrsModule,
+  ],
   controllers: [SalesReturnController],
   providers: [...CommandHandlers, ...QueryHandlers],
 })

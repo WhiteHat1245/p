@@ -22,7 +22,10 @@ import { UpdateSupplierDto } from './dto/update-supplier.dto.ts/update-supplier.
 
 @Controller('supplier')
 export class SupplierController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateSupplierDto): Promise<Supplier> {

@@ -19,7 +19,10 @@ import { UpdateEggProductionCommand } from './Commands/Impi/UpdateEggProductionC
 import { RemoveEggProductionCommand } from './Commands/Impi/RemoveEggProductionCommand';
 @Controller('egg-production')
 export class EggProductionController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateEggProductionDto): Promise<EggProduction> {

@@ -14,9 +14,15 @@ export class ChartOfAccounts {
   AccountType: string;
 
   // علاقات ذاتية المرجعية
-  @OneToMany(() => FinancialTransaction, (transaction) => transaction.DebitAccount)
+  @OneToMany(
+    () => FinancialTransaction,
+    (transaction) => transaction.DebitAccount,
+  )
   DebitTransactions: FinancialTransaction[];
 
-  @OneToMany(() => FinancialTransaction, (transaction) => transaction.CreditAccount)
+  @OneToMany(
+    () => FinancialTransaction,
+    (transaction) => transaction.CreditAccount,
+  )
   CreditTransactions: FinancialTransaction[];
 }

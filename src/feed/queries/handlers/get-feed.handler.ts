@@ -15,7 +15,9 @@ export class GetFeedHandler implements IQueryHandler<GetFeedQuery> {
 
   async execute(query: GetFeedQuery): Promise<Feed> {
     const { feedId } = query;
-    const feed = await this.feedRepository.findOne({ where: { FeedID: feedId } });
+    const feed = await this.feedRepository.findOne({
+      where: { FeedID: feedId },
+    });
     if (!feed) {
       throw new NotFoundException(`Feed with ID ${feedId} not found`);
     }

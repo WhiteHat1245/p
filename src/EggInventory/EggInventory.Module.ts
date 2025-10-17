@@ -9,7 +9,11 @@ import { EggInventoryController } from './EggInventory.Controller';
 import { EggInventory } from 'src/Core Models/EggInventory';
 import { RemoveEggInventoryHandler } from './commands/handlers/RemoveEggInventoryHandler';
 
-const CommandHandlers = [CreateEggInventoryHandler, UpdateEggInventoryHandler, RemoveEggInventoryHandler];
+const CommandHandlers = [
+  CreateEggInventoryHandler,
+  UpdateEggInventoryHandler,
+  RemoveEggInventoryHandler,
+];
 const QueryHandlers = [GetEggInventoryHandler, GetEggInventoriesHandler];
 
 @Module({

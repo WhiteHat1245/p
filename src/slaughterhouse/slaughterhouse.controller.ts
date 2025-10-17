@@ -23,7 +23,10 @@ import { RemoveSlaughterhouseCommand } from './Commands/impl/remove-slaughterhou
 
 @Controller('slaughterhouse')
 export class SlaughterhouseController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateSlaughterhouseDto): Promise<Slaughterhouse> {

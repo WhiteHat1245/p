@@ -1,5 +1,11 @@
 // في ملف: src/sale/sale.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { Customer } from './Customer';
 import { SaleDetail } from './sale-detail';
 import { SalesReturn } from './SalesReturn';

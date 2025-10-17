@@ -5,7 +5,9 @@ import { CreateEggProductionCommand } from '../Impi/CreateEggProductionCommand';
 import { EggProduction } from 'src/Core Models/EggProduction';
 
 @CommandHandler(CreateEggProductionCommand)
-export class CreateEggProductionHandler implements ICommandHandler<CreateEggProductionCommand> {
+export class CreateEggProductionHandler
+  implements ICommandHandler<CreateEggProductionCommand>
+{
   constructor(
     @InjectRepository(EggProduction)
     private readonly eggProductionRepository: Repository<EggProduction>,
@@ -13,7 +15,9 @@ export class CreateEggProductionHandler implements ICommandHandler<CreateEggProd
 
   async execute(command: CreateEggProductionCommand): Promise<EggProduction> {
     const { createEggProductionDto } = command;
-    const production = this.eggProductionRepository.create(createEggProductionDto);
+    const production = this.eggProductionRepository.create(
+      createEggProductionDto,
+    );
     return this.eggProductionRepository.save(production);
   }
 }

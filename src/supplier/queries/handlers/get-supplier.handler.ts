@@ -15,7 +15,10 @@ export class GetSupplierHandler implements IQueryHandler<GetSupplierQuery> {
 
   async execute(query: GetSupplierQuery): Promise<Supplier> {
     const { supplierId } = query;
-    const supplier = await this.supplierRepository.findOne({ where: { SupplierID: supplierId }, relations: ['Purchases'] });
+    const supplier = await this.supplierRepository.findOne({
+      where: { SupplierID: supplierId },
+      relations: ['Purchases'],
+    });
     if (!supplier) {
       throw new NotFoundException(`Supplier with ID ${supplierId} not found`);
     }

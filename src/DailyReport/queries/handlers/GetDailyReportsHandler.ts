@@ -5,7 +5,9 @@ import { DailyReport } from 'src/Core Models/DailyReport';
 import { GetDailyReportsQuery } from '../impl/GetDailyReportsQuery';
 
 @QueryHandler(GetDailyReportsQuery)
-export class GetDailyReportsHandler implements IQueryHandler<GetDailyReportsQuery, DailyReport[]> {
+export class GetDailyReportsHandler
+  implements IQueryHandler<GetDailyReportsQuery, DailyReport[]>
+{
   constructor(
     @InjectRepository(DailyReport)
     private readonly dailyReportRepository: Repository<DailyReport>,

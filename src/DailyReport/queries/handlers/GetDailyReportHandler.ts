@@ -6,7 +6,9 @@ import { GetDailyReportQuery } from 'src/DailyReport/queries/impl/GetDailyReport
 import { DailyReport } from 'src/Core Models/DailyReport';
 
 @QueryHandler(GetDailyReportQuery)
-export class GetDailyReportHandler implements IQueryHandler<GetDailyReportQuery> {
+export class GetDailyReportHandler
+  implements IQueryHandler<GetDailyReportQuery>
+{
   constructor(
     @InjectRepository(DailyReport)
     private readonly dailyReportRepository: Repository<DailyReport>,
@@ -14,7 +16,9 @@ export class GetDailyReportHandler implements IQueryHandler<GetDailyReportQuery>
 
   async execute(query: GetDailyReportQuery): Promise<DailyReport> {
     const { reportId } = query;
-    const report = await this.dailyReportRepository.findOne({ where: { ReportID: reportId } });
+    const report = await this.dailyReportRepository.findOne({
+      where: { ReportID: reportId },
+    });
     if (!report) {
       throw new NotFoundException(`Daily Report with ID ${reportId} not found`);
     }

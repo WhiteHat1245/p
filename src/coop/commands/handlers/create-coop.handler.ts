@@ -4,7 +4,6 @@ import { Repository } from 'typeorm';
 import { CreateCoopCommand } from '../impl/create-coop.command';
 import { Coop } from 'src/Core Models/Coop';
 
-
 @CommandHandler(CreateCoopCommand)
 export class CreateCoopHandler implements ICommandHandler<CreateCoopCommand> {
   constructor(

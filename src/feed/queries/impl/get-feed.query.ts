@@ -1,3 +1,3 @@
- export class GetFeedQuery {
+export class GetFeedQuery {
   constructor(public readonly feedId: number) {}
 }

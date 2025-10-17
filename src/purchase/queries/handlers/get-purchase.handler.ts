@@ -15,7 +15,10 @@ export class GetPurchaseHandler implements IQueryHandler<GetPurchaseQuery> {
 
   async execute(query: GetPurchaseQuery): Promise<Purchase> {
     const { purchaseId } = query;
-    const purchase = await this.purchaseRepository.findOne({ where: { PurchaseID: purchaseId }, relations: ['Supplier', 'PurchaseDetails'] });
+    const purchase = await this.purchaseRepository.findOne({
+      where: { PurchaseID: purchaseId },
+      relations: ['Supplier', 'PurchaseDetails'],
+    });
     if (!purchase) {
       throw new NotFoundException(`Purchase with ID ${purchaseId} not found`);
     }

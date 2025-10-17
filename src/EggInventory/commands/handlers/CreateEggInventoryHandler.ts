@@ -4,9 +4,10 @@ import { Repository } from 'typeorm';
 import { CreateEggInventoryCommand } from '../Impi/CreateEggInventoryCommand';
 import { EggInventory } from 'src/Core Models/EggInventory';
 
-
 @CommandHandler(CreateEggInventoryCommand)
-export class CreateEggInventoryHandler implements ICommandHandler<CreateEggInventoryCommand> {
+export class CreateEggInventoryHandler
+  implements ICommandHandler<CreateEggInventoryCommand>
+{
   constructor(
     @InjectRepository(EggInventory)
     private readonly eggInventoryRepository: Repository<EggInventory>,

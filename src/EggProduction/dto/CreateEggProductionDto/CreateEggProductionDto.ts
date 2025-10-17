@@ -1,4 +1,12 @@
-import { IsInt, IsDateString, IsNumber, IsNotEmpty, IsOptional, Min, Max } from 'class-validator';
+import {
+  IsInt,
+  IsDateString,
+  IsNumber,
+  IsNotEmpty,
+  IsOptional,
+  Min,
+  Max,
+} from 'class-validator';
 
 export class CreateEggProductionDto {
   @IsInt()

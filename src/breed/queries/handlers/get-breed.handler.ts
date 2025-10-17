@@ -15,7 +15,10 @@ export class GetBreedHandler implements IQueryHandler<GetBreedQuery> {
 
   async execute(query: GetBreedQuery): Promise<Breed> {
     const { breedId } = query;
-    const breed = await this.breedRepository.findOne({ where: { BreedID: breedId }, relations: ['Poultry'] });
+    const breed = await this.breedRepository.findOne({
+      where: { BreedID: breedId },
+      relations: ['Poultry'],
+    });
     if (!breed) {
       throw new NotFoundException(`Breed with ID ${breedId} not found`);
     }

@@ -15,7 +15,10 @@ export class GetCustomerHandler implements IQueryHandler<GetCustomerQuery> {
 
   async execute(query: GetCustomerQuery): Promise<Customer> {
     const { customerId } = query;
-    const customer = await this.customerRepository.findOne({ where: { CustomerID: customerId }, relations: ['Sales'] });
+    const customer = await this.customerRepository.findOne({
+      where: { CustomerID: customerId },
+      relations: ['Sales'],
+    });
     if (!customer) {
       throw new NotFoundException(`Customer with ID ${customerId} not found`);
     }

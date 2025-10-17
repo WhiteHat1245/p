@@ -15,7 +15,10 @@ export class GetVaccineHandler implements IQueryHandler<GetVaccineQuery> {
 
   async execute(query: GetVaccineQuery): Promise<Vaccine> {
     const { vaccineId } = query;
-    const vaccine = await this.vaccineRepository.findOne({ where: { VaccineID: vaccineId }, relations: ['HealthLogs'] });
+    const vaccine = await this.vaccineRepository.findOne({
+      where: { VaccineID: vaccineId },
+      relations: ['HealthLogs'],
+    });
     if (!vaccine) {
       throw new NotFoundException(`Vaccine with ID ${vaccineId} not found`);
     }

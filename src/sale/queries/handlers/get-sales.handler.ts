@@ -4,7 +4,6 @@ import { Repository } from 'typeorm';
 import { GetSalesQuery } from '../impl/get-sale.query';
 import { Sale } from 'src/Core Models/Sale ';
 
-
 @QueryHandler(GetSalesQuery)
 export class GetSalesHandler implements IQueryHandler<GetSalesQuery> {
   constructor(

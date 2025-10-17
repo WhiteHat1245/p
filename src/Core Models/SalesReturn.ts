@@ -1,5 +1,11 @@
 // في ملف: src/sales-return/sales-return.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { Sale } from './Sale ';
 import { Customer } from './Customer';
 import { SalesReturnDetail } from './SalesReturnDetail';
@@ -27,6 +33,9 @@ export class SalesReturn {
   @ManyToOne(() => Customer, (customer) => customer.SalesReturns)
   Customer: Customer;
 
-  @OneToMany(() => SalesReturnDetail, (detail: SalesReturnDetail) => detail.SalesReturn)
+  @OneToMany(
+    () => SalesReturnDetail,
+    (detail: SalesReturnDetail) => detail.SalesReturn,
+  )
   SalesReturnDetails: SalesReturnDetail[];
 }

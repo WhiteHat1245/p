@@ -22,7 +22,10 @@ import { UpdatePurchaseDto } from './dto/update-purchase.dto.ts/update-purchase.
 
 @Controller('purchase')
 export class PurchaseController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreatePurchaseDto): Promise<Purchase> {

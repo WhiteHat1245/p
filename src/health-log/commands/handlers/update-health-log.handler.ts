@@ -6,9 +6,10 @@ import { NotFoundException } from '@nestjs/common';
 import { UpdateHealthLogCommand } from '../impl/update-health-log.command';
 import { HealthLog } from 'src/Core Models/HealthLog';
 
-
 @CommandHandler(UpdateHealthLogCommand)
-export class UpdateHealthLogHandler implements ICommandHandler<UpdateHealthLogCommand> {
+export class UpdateHealthLogHandler
+  implements ICommandHandler<UpdateHealthLogCommand>
+{
   constructor(
     @InjectRepository(HealthLog)
     private readonly healthLogRepository: Repository<HealthLog>,
@@ -16,7 +17,10 @@ export class UpdateHealthLogHandler implements ICommandHandler<UpdateHealthLogCo
 
   async execute(command: UpdateHealthLogCommand): Promise<HealthLog> {
     const { id, updateHealthLogDto } = command;
-    const healthLog = await this.healthLogRepository.preload({ LogID: id, ...updateHealthLogDto });
+    const healthLog = await this.healthLogRepository.preload({
+      LogID: id,
+      ...updateHealthLogDto,
+    });
     if (!healthLog) {
       throw new NotFoundException(`HealthLog with ID ${id} not found`);
     }

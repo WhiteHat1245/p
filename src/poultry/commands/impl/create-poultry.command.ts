@@ -7,7 +7,10 @@ export class CreatePoultryCommand {
 // src/poultry/commands/impl/update-poultry.command.ts
 import { UpdatePoultryDto } from '../../dto/update-poultry.dto.js';
 export class UpdatePoultryCommand {
-  constructor(public readonly id: number, public readonly updatePoultryDto: UpdatePoultryDto) {}
+  constructor(
+    public readonly id: number,
+    public readonly updatePoultryDto: UpdatePoultryDto,
+  ) {}
 }
 
 // src/poultry/commands/impl/remove-poultry.command.ts

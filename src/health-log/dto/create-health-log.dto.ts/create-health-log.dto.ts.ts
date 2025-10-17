@@ -1,4 +1,10 @@
-import { IsNumber, IsNotEmpty, IsString, IsOptional, IsDateString } from 'class-validator';
+import {
+  IsNumber,
+  IsNotEmpty,
+  IsString,
+  IsOptional,
+  IsDateString,
+} from 'class-validator';
 
 export class CreateHealthLogDto {
   @IsNumber()

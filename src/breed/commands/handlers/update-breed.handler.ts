@@ -15,7 +15,10 @@ export class UpdateBreedHandler implements ICommandHandler<UpdateBreedCommand> {
 
   async execute(command: UpdateBreedCommand): Promise<Breed> {
     const { id, updateBreedDto } = command;
-    const breed = await this.breedRepository.preload({ BreedID: id, ...updateBreedDto });
+    const breed = await this.breedRepository.preload({
+      BreedID: id,
+      ...updateBreedDto,
+    });
     if (!breed) {
       throw new NotFoundException(`Breed with ID ${id} not found`);
     }

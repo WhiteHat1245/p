@@ -6,7 +6,9 @@ import { UpdateEggProductionCommand } from '../Impi/UpdateEggProductionCommand';
 import { EggProduction } from 'src/Core Models/EggProduction';
 
 @CommandHandler(UpdateEggProductionCommand)
-export class UpdateEggProductionHandler implements ICommandHandler<UpdateEggProductionCommand> {
+export class UpdateEggProductionHandler
+  implements ICommandHandler<UpdateEggProductionCommand>
+{
   constructor(
     @InjectRepository(EggProduction)
     private readonly eggProductionRepository: Repository<EggProduction>,
@@ -20,7 +22,9 @@ export class UpdateEggProductionHandler implements ICommandHandler<UpdateEggProd
     });
 
     if (!production) {
-      throw new NotFoundException(`Egg Production record with ID ${id} not found`);
+      throw new NotFoundException(
+        `Egg Production record with ID ${id} not found`,
+      );
     }
 
     return this.eggProductionRepository.save(production);

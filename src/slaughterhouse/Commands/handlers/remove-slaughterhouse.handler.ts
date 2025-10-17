@@ -7,7 +7,9 @@ import { RemoveSlaughterhouseCommand } from '../impl/remove-slaughterhouse.comma
 import { Slaughterhouse } from 'src/Core Models/slaughterhouse';
 
 @CommandHandler(RemoveSlaughterhouseCommand)
-export class RemoveSlaughterhouseHandler implements ICommandHandler<RemoveSlaughterhouseCommand> {
+export class RemoveSlaughterhouseHandler
+  implements ICommandHandler<RemoveSlaughterhouseCommand>
+{
   constructor(
     @InjectRepository(Slaughterhouse)
     private readonly slaughterhouseRepository: Repository<Slaughterhouse>,

@@ -22,7 +22,10 @@ import { CreateCustomerDto } from './dto/create-customer.dto.ts/create-customer.
 
 @Controller('customer')
 export class CustomerController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateCustomerDto): Promise<Customer> {

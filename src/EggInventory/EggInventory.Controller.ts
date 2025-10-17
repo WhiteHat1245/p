@@ -20,7 +20,10 @@ import { RemoveEggInventoryCommand } from './commands/Impi/RemoveEggInventoryCom
 
 @Controller('egg-inventory')
 export class EggInventoryController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateEggInventoryDto): Promise<EggInventory> {

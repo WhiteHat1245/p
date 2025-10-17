@@ -10,7 +10,6 @@ import {
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 
-
 // استيراد الأوامر والاستعلامات
 import { CreateBreedCommand } from './commands/impl/create-breed.command';
 import { UpdateBreedCommand } from './commands/impl/update-breed.command';
@@ -23,7 +22,10 @@ import { UpdateBreedDto } from './dto/update-breed.dto.ts/update-breed.dto.ts';
 
 @Controller('breed')
 export class BreedController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateBreedDto): Promise<Breed> {

@@ -20,7 +20,10 @@ import { RemoveDailyReportCommand } from './Commands/impl/RemoveDailyReportComma
 
 @Controller('daily-report')
 export class DailyReportController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateDailyReportDto): Promise<DailyReport> {

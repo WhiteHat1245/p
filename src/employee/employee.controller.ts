@@ -22,7 +22,10 @@ import { UpdateEmployeeDto } from './dto/update-employee.dto.ts/update-employee.
 
 @Controller('employee')
 export class EmployeeController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateEmployeeDto): Promise<Employee> {

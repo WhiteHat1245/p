@@ -6,7 +6,9 @@ import { RemoveExpenseCommand } from '../Impi/RemoveExpenseCommand';
 import { Expense } from 'src/Core Models/Expense';
 
 @CommandHandler(RemoveExpenseCommand)
-export class RemoveExpenseHandler implements ICommandHandler<RemoveExpenseCommand> {
+export class RemoveExpenseHandler
+  implements ICommandHandler<RemoveExpenseCommand>
+{
   constructor(
     @InjectRepository(Expense)
     private readonly expenseRepository: Repository<Expense>,

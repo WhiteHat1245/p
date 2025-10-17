@@ -14,7 +14,11 @@ import { GetHealthLogsHandler } from './queries/handlers/get-health-logs.handler
 import { Poultry } from 'src/Core Models/Poultry';
 import { HealthLog } from 'src/Core Models/HealthLog';
 
-const CommandHandlers = [CreateHealthLogHandler, UpdateHealthLogHandler, RemoveHealthLogHandler];
+const CommandHandlers = [
+  CreateHealthLogHandler,
+  UpdateHealthLogHandler,
+  RemoveHealthLogHandler,
+];
 const QueryHandlers = [GetHealthLogHandler, GetHealthLogsHandler];
 
 @Module({

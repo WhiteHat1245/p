@@ -14,7 +14,11 @@ import { GetBreedsHandler } from './queries/handlers/get-breeds.handler';
 import { Breed } from 'src/Core Models/Breed';
 import { Poultry } from 'src/Core Models/Poultry';
 
-const CommandHandlers = [CreateBreedHandler, UpdateBreedHandler, RemoveBreedHandler];
+const CommandHandlers = [
+  CreateBreedHandler,
+  UpdateBreedHandler,
+  RemoveBreedHandler,
+];
 const QueryHandlers = [GetBreedHandler, GetBreedsHandler];
 
 @Module({

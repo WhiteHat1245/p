@@ -15,7 +15,9 @@ export class GetEmployeeHandler implements IQueryHandler<GetEmployeeQuery> {
 
   async execute(query: GetEmployeeQuery): Promise<Employee> {
     const { employeeId } = query;
-    const employee = await this.employeeRepository.findOne({ where: { EmployeeID: employeeId } });
+    const employee = await this.employeeRepository.findOne({
+      where: { EmployeeID: employeeId },
+    });
     if (!employee) {
       throw new NotFoundException(`Employee with ID ${employeeId} not found`);
     }

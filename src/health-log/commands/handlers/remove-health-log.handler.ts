@@ -7,7 +7,9 @@ import { RemoveHealthLogCommand } from '../impl/remove-health-log.command';
 import { HealthLog } from 'src/Core Models/HealthLog';
 
 @CommandHandler(RemoveHealthLogCommand)
-export class RemoveHealthLogHandler implements ICommandHandler<RemoveHealthLogCommand> {
+export class RemoveHealthLogHandler
+  implements ICommandHandler<RemoveHealthLogCommand>
+{
   constructor(
     @InjectRepository(HealthLog)
     private readonly healthLogRepository: Repository<HealthLog>,

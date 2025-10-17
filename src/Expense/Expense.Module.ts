@@ -9,7 +9,11 @@ import { RemoveExpenseHandler } from './Commands/handlers/RemoveExpenseHandler';
 import { Expense } from 'src/Core Models/Expense';
 import { ExpenseController } from './Expense.Controller';
 
-const CommandHandlers = [CreateExpenseHandler, UpdateExpenseHandler, RemoveExpenseHandler];
+const CommandHandlers = [
+  CreateExpenseHandler,
+  UpdateExpenseHandler,
+  RemoveExpenseHandler,
+];
 const QueryHandlers = [GetExpenseHandler, GetExpensesHandler];
 
 @Module({

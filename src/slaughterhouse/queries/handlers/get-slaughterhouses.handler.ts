@@ -6,13 +6,17 @@ import { Slaughterhouse } from 'src/Core Models/slaughterhouse';
 import { GetSlaughterhousesQuery } from '../impl/get-slaughterhouses.query';
 
 @QueryHandler(GetSlaughterhousesQuery)
-export class GetSlaughterhousesHandler implements IQueryHandler<GetSlaughterhousesQuery> {
+export class GetSlaughterhousesHandler
+  implements IQueryHandler<GetSlaughterhousesQuery>
+{
   constructor(
     @InjectRepository(Slaughterhouse)
     private readonly slaughterhouseRepository: Repository<Slaughterhouse>,
   ) {}
 
   async execute(): Promise<Slaughterhouse[]> {
-    return this.slaughterhouseRepository.find({ relations: ['PoultryBatches', 'FrozenPoultryInventories'] });
+    return this.slaughterhouseRepository.find({
+      relations: ['PoultryBatches', 'FrozenPoultryInventories'],
+    });
   }
 }

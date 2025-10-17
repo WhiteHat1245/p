@@ -5,7 +5,6 @@ import { NotFoundException } from '@nestjs/common';
 import { Coop } from 'src/Core Models/Coop';
 import { RemoveCoopCommand } from '../impl/create-coop.command';
 
-
 @CommandHandler(RemoveCoopCommand)
 export class RemoveCoopHandler implements ICommandHandler<RemoveCoopCommand> {
   constructor(

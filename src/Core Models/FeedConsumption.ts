@@ -19,5 +19,3 @@ export class FeedConsumption {
   @ManyToOne(() => Poultry, (poultry) => poultry.Coop)
   Poultry: Poultry;
 }
-
-

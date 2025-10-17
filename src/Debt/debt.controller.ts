@@ -1,18 +1,30 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from "@nestjs/common";
-import { CommandBus, QueryBus } from "@nestjs/cqrs";
-import { CreateDebtDto } from "./dto/CreateDebtDto";
-import { CreateDebtCommand } from "./Commands/impl/CreateDebtCommand";
-import { Debt } from "src/Core Models/Debt";
-import { GetDebtQuery } from "./queries/impl/GetDebtQuery";
-import { GetDebtsQuery } from "./queries/impl/GetDebtsQuery";
-import { GetTotalDebtQuery } from "./queries/impl/get-total-debt.query";
-import { UpdateDebtDto } from "./dto/UpdateDebtDto";
-import { UpdateDebtCommand } from "./Commands/impl/UpdateDebtCommand";
-import { RemoveDebtCommand } from "./Commands/impl/RemoveDebtCommand";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+} from '@nestjs/common';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { CreateDebtDto } from './dto/CreateDebtDto';
+import { CreateDebtCommand } from './Commands/impl/CreateDebtCommand';
+import { Debt } from 'src/Core Models/Debt';
+import { GetDebtQuery } from './queries/impl/GetDebtQuery';
+import { GetDebtsQuery } from './queries/impl/GetDebtsQuery';
+import { GetTotalDebtQuery } from './queries/impl/get-total-debt.query';
+import { UpdateDebtDto } from './dto/UpdateDebtDto';
+import { UpdateDebtCommand } from './Commands/impl/UpdateDebtCommand';
+import { RemoveDebtCommand } from './Commands/impl/RemoveDebtCommand';
 
 @Controller('debt')
 export class DebtController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateDebtDto): Promise<Debt> {
@@ -30,7 +42,9 @@ export class DebtController {
   }
 
   @Get('total/:customerId')
-  getTotalDebt(@Param('customerId', ParseIntPipe) customerId: number): Promise<number> {
+  getTotalDebt(
+    @Param('customerId', ParseIntPipe) customerId: number,
+  ): Promise<number> {
     return this.queryBus.execute(new GetTotalDebtQuery(customerId));
   }
 

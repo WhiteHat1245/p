@@ -12,6 +12,9 @@ export class PoultryBatch {
 
   // other properties...
 
-  @ManyToOne(() => Slaughterhouse, (slaughterhouse) => slaughterhouse.PoultryBatches)
+  @ManyToOne(
+    () => Slaughterhouse,
+    (slaughterhouse) => slaughterhouse.PoultryBatches,
+  )
   Slaughterhouse: Slaughterhouse;
 }

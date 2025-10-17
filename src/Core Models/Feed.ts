@@ -19,6 +19,9 @@ export class Feed {
   UnitPrice: number | null;
 
   // الخصائص الملاحية
-  @OneToMany(() => FeedConsumption, (consumption: FeedConsumption) => consumption.Feed)
+  @OneToMany(
+    () => FeedConsumption,
+    (consumption: FeedConsumption) => consumption.Feed,
+  )
   FeedConsumptions: FeedConsumption[];
 }

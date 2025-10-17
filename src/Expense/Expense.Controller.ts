@@ -20,7 +20,10 @@ import { RemoveExpenseCommand } from './Commands/Impi/RemoveExpenseCommand';
 
 @Controller('expense')
 export class ExpenseController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateExpenseDto): Promise<Expense> {

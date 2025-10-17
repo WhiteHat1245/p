@@ -6,7 +6,9 @@ import { Purchase } from 'src/Core Models/Purchase ';
 import { FrozenPoultryInventory } from 'src/Core Models/FrozenPoultryInventory';
 
 @CommandHandler(CreatePurchaseCommand)
-export class CreatePurchaseHandler implements ICommandHandler<CreatePurchaseCommand> {
+export class CreatePurchaseHandler
+  implements ICommandHandler<CreatePurchaseCommand>
+{
   constructor(private dataSource: DataSource) {}
 
   async execute(command: CreatePurchaseCommand): Promise<Purchase> {
@@ -23,7 +25,9 @@ export class CreatePurchaseHandler implements ICommandHandler<CreatePurchaseComm
       const inventoryRepository = manager.getRepository(FrozenPoultryInventory);
 
       for (const detail of createPurchaseDto.purchaseDetails) {
-        let inventoryItem = await inventoryRepository.findOne({ where: { PoultryTypeID: detail.itemID } });
+        let inventoryItem = await inventoryRepository.findOne({
+          where: { PoultryTypeID: detail.itemID },
+        });
 
         if (!inventoryItem) {
           // إذا لم يكن العنصر موجودًا، قم بإنشاء سجل مخزون جديد

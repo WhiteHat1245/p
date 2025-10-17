@@ -1,7 +1,12 @@
-import { IsDateString, IsNumber, IsNotEmpty, IsArray, ValidateNested } from 'class-validator';
+import {
+  IsDateString,
+  IsNumber,
+  IsNotEmpty,
+  IsArray,
+  ValidateNested,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 import { PurchaseDetailDto } from '../purchase-detail.dto';
-
 
 export class CreatePurchaseDto {
   @IsNumber()
@@ -16,5 +21,4 @@ export class CreatePurchaseDto {
   @ValidateNested({ each: true })
   @Type(() => PurchaseDetailDto)
   purchaseDetails: PurchaseDetailDto[];
-
 }

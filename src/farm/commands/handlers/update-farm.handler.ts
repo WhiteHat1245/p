@@ -15,7 +15,10 @@ export class UpdateFarmHandler implements ICommandHandler<UpdateFarmCommand> {
 
   async execute(command: UpdateFarmCommand): Promise<Farm> {
     const { id, updateFarmDto } = command;
-    const farm = await this.farmRepository.preload({ FarmID: id, ...updateFarmDto });
+    const farm = await this.farmRepository.preload({
+      FarmID: id,
+      ...updateFarmDto,
+    });
     if (!farm) {
       throw new NotFoundException(`Farm with ID ${id} not found`);
     }

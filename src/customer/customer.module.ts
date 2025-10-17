@@ -13,7 +13,11 @@ import { GetCustomerHandler } from './queries/handlers/get-customer.handler';
 import { GetCustomersHandler } from './queries/handlers/get-customers.handler';
 import { Customer } from 'src/Core Models/Customer';
 
-const CommandHandlers = [CreateCustomerHandler, UpdateCustomerHandler, RemoveCustomerHandler];
+const CommandHandlers = [
+  CreateCustomerHandler,
+  UpdateCustomerHandler,
+  RemoveCustomerHandler,
+];
 const QueryHandlers = [GetCustomerHandler, GetCustomersHandler];
 
 @Module({

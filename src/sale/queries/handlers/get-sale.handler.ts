@@ -15,7 +15,10 @@ export class GetSaleHandler implements IQueryHandler<GetSaleQuery> {
 
   async execute(query: GetSaleQuery): Promise<Sale> {
     const { saleId } = query;
-    const sale = await this.saleRepository.findOne({ where: { SaleID: saleId }, relations: ['SaleDetails'] });
+    const sale = await this.saleRepository.findOne({
+      where: { SaleID: saleId },
+      relations: ['SaleDetails'],
+    });
     if (!sale) {
       throw new NotFoundException(`Sale with ID ${saleId} not found`);
     }

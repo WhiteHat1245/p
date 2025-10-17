@@ -1,5 +1,11 @@
 // في ملف: src/purchase/purchase.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { Supplier } from './Supplier';
 
 import { PurchaseReturn } from './PurchaseReturn';
@@ -31,10 +37,16 @@ export class Purchase {
   @ManyToOne(() => Supplier, (supplier) => supplier.Purchases)
   Supplier: Supplier;
 
-  @OneToMany(() => PurchaseDetail, (purchaseDetail: PurchaseDetail) => purchaseDetail.Purchase)
+  @OneToMany(
+    () => PurchaseDetail,
+    (purchaseDetail: PurchaseDetail) => purchaseDetail.Purchase,
+  )
   PurchaseDetails: PurchaseDetail[];
 
-  @OneToMany(() => PurchaseReturn, (purchaseReturn: PurchaseReturn) => purchaseReturn.Purchase)
+  @OneToMany(
+    () => PurchaseReturn,
+    (purchaseReturn: PurchaseReturn) => purchaseReturn.Purchase,
+  )
   PurchaseReturns: PurchaseReturn[];
 
   @OneToMany(() => Payment, (payment: Payment) => payment.Purchase)

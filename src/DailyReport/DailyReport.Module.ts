@@ -9,8 +9,11 @@ import { RemoveDailyReportHandler } from './Commands/handlers/RemoveDailyReportH
 import { DailyReport } from 'src/Core Models/DailyReport';
 import { DailyReportController } from './DailyReport.Controller';
 
-
-const CommandHandlers = [CreateDailyReportHandler, UpdateDailyReportHandler, RemoveDailyReportHandler];
+const CommandHandlers = [
+  CreateDailyReportHandler,
+  UpdateDailyReportHandler,
+  RemoveDailyReportHandler,
+];
 const QueryHandlers = [GetDailyReportHandler, GetDailyReportsHandler];
 
 @Module({

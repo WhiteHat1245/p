@@ -1,5 +1,14 @@
 // src/poultry/poultry.controller.ts
-import { Controller, Get, Post, Body, Param, Delete, Patch, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Patch,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 
 // استيراد الأوامر
@@ -18,7 +27,10 @@ import { Poultry } from '../Core Models/Poultry';
 
 @Controller('poultry')
 export class PoultryController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreatePoultryDto): Promise<Poultry> {

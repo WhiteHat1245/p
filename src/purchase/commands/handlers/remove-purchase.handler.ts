@@ -7,7 +7,9 @@ import { RemovePurchaseCommand } from '../impl/remove-purchase.command';
 import { Purchase } from 'src/Core Models/Purchase ';
 
 @CommandHandler(RemovePurchaseCommand)
-export class RemovePurchaseHandler implements ICommandHandler<RemovePurchaseCommand> {
+export class RemovePurchaseHandler
+  implements ICommandHandler<RemovePurchaseCommand>
+{
   constructor(
     @InjectRepository(Purchase)
     private readonly purchaseRepository: Repository<Purchase>,

@@ -5,7 +5,9 @@ import { CreateDailyReportCommand } from '../impl/CreateDailyReportCommand';
 import { DailyReport } from 'src/Core Models/DailyReport';
 
 @CommandHandler(CreateDailyReportCommand)
-export class CreateDailyReportHandler implements ICommandHandler<CreateDailyReportCommand> {
+export class CreateDailyReportHandler
+  implements ICommandHandler<CreateDailyReportCommand>
+{
   constructor(
     @InjectRepository(DailyReport)
     private readonly dailyReportRepository: Repository<DailyReport>,

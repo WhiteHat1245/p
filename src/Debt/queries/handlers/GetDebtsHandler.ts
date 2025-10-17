@@ -4,7 +4,6 @@ import { Repository } from 'typeorm';
 import { GetDebtsQuery } from '../impl/GetDebtsQuery';
 import { Debt } from 'src/Core Models/Debt';
 
-
 @QueryHandler(GetDebtsQuery)
 export class GetDebtsHandler implements IQueryHandler<GetDebtsQuery> {
   constructor(

@@ -15,7 +15,10 @@ export class GetHealthLogHandler implements IQueryHandler<GetHealthLogQuery> {
 
   async execute(query: GetHealthLogQuery): Promise<HealthLog> {
     const { healthLogId } = query;
-    const healthLog = await this.healthLogRepository.findOne({ where: { LogID: healthLogId }, relations: ['Poultry'] });
+    const healthLog = await this.healthLogRepository.findOne({
+      where: { LogID: healthLogId },
+      relations: ['Poultry'],
+    });
     if (!healthLog) {
       throw new NotFoundException(`HealthLog with ID ${healthLogId} not found`);
     }

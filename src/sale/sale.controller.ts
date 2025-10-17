@@ -20,7 +20,10 @@ import { UpdateSaleDto } from './dto/update-sale.dto.ts/update-sale.dto.ts';
 
 @Controller('sale')
 export class SaleController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateSaleDto): Promise<Sale> {

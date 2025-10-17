@@ -5,9 +5,10 @@ import { NotFoundException } from '@nestjs/common';
 import { GetEggProductionQuery } from '../Impl/GetEggProductionQuery';
 import { EggProduction } from 'src/Core Models/EggProduction';
 
-
 @QueryHandler(GetEggProductionQuery)
-export class GetEggProductionHandler implements IQueryHandler<GetEggProductionQuery> {
+export class GetEggProductionHandler
+  implements IQueryHandler<GetEggProductionQuery>
+{
   constructor(
     @InjectRepository(EggProduction)
     private readonly eggProductionRepository: Repository<EggProduction>,
@@ -15,13 +16,15 @@ export class GetEggProductionHandler implements IQueryHandler<GetEggProductionQu
 
   async execute(query: GetEggProductionQuery): Promise<EggProduction> {
     const { id } = query;
-    const production = await this.eggProductionRepository.findOne({ 
+    const production = await this.eggProductionRepository.findOne({
       where: { EggProductionID: id },
-      relations: ['Coop'] 
+      relations: ['Coop'],
     });
 
     if (!production) {
-      throw new NotFoundException(`Egg Production record with ID ${id} not found`);
+      throw new NotFoundException(
+        `Egg Production record with ID ${id} not found`,
+      );
     }
     return production;
   }

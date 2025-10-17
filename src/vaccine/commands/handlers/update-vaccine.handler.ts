@@ -6,7 +6,9 @@ import { UpdateVaccineCommand } from '../impl/update-vaccine.command';
 import { Vaccine } from 'src/Core Models/vaccine';
 
 @CommandHandler(UpdateVaccineCommand)
-export class UpdateVaccineHandler implements ICommandHandler<UpdateVaccineCommand> {
+export class UpdateVaccineHandler
+  implements ICommandHandler<UpdateVaccineCommand>
+{
   constructor(
     @InjectRepository(Vaccine)
     private readonly vaccineRepository: Repository<Vaccine>,
@@ -22,12 +24,17 @@ export class UpdateVaccineHandler implements ICommandHandler<UpdateVaccineComman
       today.setHours(0, 0, 0, 0); // Reset time for accurate date comparison
 
       if (expirationDate < today) {
-        throw new BadRequestException('لا يمكن تحديث سجل لقاح بتاريخ صلاحية منتهٍ. يرجى التحقق من التاريخ.');
+        throw new BadRequestException(
+          'لا يمكن تحديث سجل لقاح بتاريخ صلاحية منتهٍ. يرجى التحقق من التاريخ.',
+        );
       }
     }
-    
+
     // Check if the vaccine record exists before attempting to update
-    const vaccine = await this.vaccineRepository.preload({ VaccineID: id, ...updateVaccineDto });
+    const vaccine = await this.vaccineRepository.preload({
+      VaccineID: id,
+      ...updateVaccineDto,
+    });
     if (!vaccine) {
       throw new NotFoundException(`Vaccine with ID ${id} not found`);
     }

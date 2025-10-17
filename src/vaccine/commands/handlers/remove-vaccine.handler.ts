@@ -7,7 +7,9 @@ import { RemoveVaccineCommand } from '../impl/remove-vaccine.command';
 import { Vaccine } from 'src/Core Models/vaccine';
 
 @CommandHandler(RemoveVaccineCommand)
-export class RemoveVaccineHandler implements ICommandHandler<RemoveVaccineCommand> {
+export class RemoveVaccineHandler
+  implements ICommandHandler<RemoveVaccineCommand>
+{
   constructor(
     @InjectRepository(Vaccine)
     private readonly vaccineRepository: Repository<Vaccine>,

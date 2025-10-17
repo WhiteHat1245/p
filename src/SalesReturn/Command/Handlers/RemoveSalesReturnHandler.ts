@@ -6,7 +6,9 @@ import { RemoveSalesReturnCommand } from '../Impl/RemoveSalesReturnCommand';
 import { SalesReturn } from 'src/Core Models/SalesReturn';
 
 @CommandHandler(RemoveSalesReturnCommand)
-export class RemoveSalesReturnHandler implements ICommandHandler<RemoveSalesReturnCommand> {
+export class RemoveSalesReturnHandler
+  implements ICommandHandler<RemoveSalesReturnCommand>
+{
   constructor(
     @InjectRepository(SalesReturn)
     private readonly salesReturnRepository: Repository<SalesReturn>,

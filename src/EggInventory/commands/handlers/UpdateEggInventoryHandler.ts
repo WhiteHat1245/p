@@ -6,7 +6,9 @@ import { UpdateEggInventoryCommand } from '../Impi/UpdateEggInventoryCommand';
 import { EggInventory } from 'src/Core Models/EggInventory';
 
 @CommandHandler(UpdateEggInventoryCommand)
-export class UpdateEggInventoryHandler implements ICommandHandler<UpdateEggInventoryCommand> {
+export class UpdateEggInventoryHandler
+  implements ICommandHandler<UpdateEggInventoryCommand>
+{
   constructor(
     @InjectRepository(EggInventory)
     private readonly eggInventoryRepository: Repository<EggInventory>,
@@ -14,7 +16,10 @@ export class UpdateEggInventoryHandler implements ICommandHandler<UpdateEggInven
 
   async execute(command: UpdateEggInventoryCommand): Promise<EggInventory> {
     const { id, updateEggInventoryDto } = command;
-    const inventory = await this.eggInventoryRepository.preload({ InventoryID: id, ...updateEggInventoryDto });
+    const inventory = await this.eggInventoryRepository.preload({
+      InventoryID: id,
+      ...updateEggInventoryDto,
+    });
     if (!inventory) {
       throw new NotFoundException(`Egg Inventory with ID ${id} not found`);
     }

@@ -12,21 +12,26 @@ import {
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 
 // استيراد الأوامر
-import { CreateCoopCommand, RemoveCoopCommand, UpdateCoopCommand } from './commands/impl/create-coop.command';
+import {
+  CreateCoopCommand,
+  RemoveCoopCommand,
+  UpdateCoopCommand,
+} from './commands/impl/create-coop.command';
 
 // استيراد الاستعلامات
 import { GetCoopQuery, GetCoopsQuery } from './queries/impl/get-coop.query';
-
 
 // استيراد DTOs
 import { CreateCoopDto } from './dto/create-coop.dto';
 import { UpdateCoopDto } from './dto/update-coop.dto';
 import { Coop } from 'src/Core Models/Coop';
 
-
 @Controller('coop')
 export class CoopController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateCoopDto): Promise<Coop> {

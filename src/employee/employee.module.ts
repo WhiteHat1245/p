@@ -13,7 +13,11 @@ import { GetEmployeeHandler } from './queries/handlers/get-employee.handler';
 import { GetEmployeesHandler } from './queries/handlers/get-employees.handler';
 import { Employee } from 'src/Core Models/Employee ';
 
-const CommandHandlers = [CreateEmployeeHandler, UpdateEmployeeHandler, RemoveEmployeeHandler];
+const CommandHandlers = [
+  CreateEmployeeHandler,
+  UpdateEmployeeHandler,
+  RemoveEmployeeHandler,
+];
 const QueryHandlers = [GetEmployeeHandler, GetEmployeesHandler];
 
 @Module({

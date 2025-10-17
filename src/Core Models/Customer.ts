@@ -16,13 +16,16 @@ export class Customer {
   @Column({ length: 255, nullable: true })
   ContactInfo: string;
 
-   @OneToMany(() => Debt, (debt) => debt.Customer)
+  @OneToMany(() => Debt, (debt) => debt.Customer)
   debts: Debt[];
 
   @OneToMany(() => Sale, (sale: Sale) => sale.Customer)
   Sales: Sale[];
 
-  @OneToMany(() => SalesReturn, (salesReturn: SalesReturn) => salesReturn.Customer)
+  @OneToMany(
+    () => SalesReturn,
+    (salesReturn: SalesReturn) => salesReturn.Customer,
+  )
   SalesReturns: SalesReturn[];
 
   @OneToMany(() => Receipt, (receipt: Receipt) => receipt.Customer)

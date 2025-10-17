@@ -15,7 +15,10 @@ export class UpdateFeedHandler implements ICommandHandler<UpdateFeedCommand> {
 
   async execute(command: UpdateFeedCommand): Promise<Feed> {
     const { id, updateFeedDto } = command;
-    const feed = await this.feedRepository.preload({ FeedID: id, ...updateFeedDto });
+    const feed = await this.feedRepository.preload({
+      FeedID: id,
+      ...updateFeedDto,
+    });
     if (!feed) {
       throw new NotFoundException(`Feed with ID ${id} not found`);
     }

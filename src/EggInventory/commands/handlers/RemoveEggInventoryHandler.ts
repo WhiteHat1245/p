@@ -5,9 +5,10 @@ import { NotFoundException } from '@nestjs/common';
 import { RemoveEggInventoryCommand } from '../Impi/RemoveEggInventoryCommand';
 import { EggInventory } from 'src/Core Models/EggInventory';
 
-
 @CommandHandler(RemoveEggInventoryCommand)
-export class RemoveEggInventoryHandler implements ICommandHandler<RemoveEggInventoryCommand> {
+export class RemoveEggInventoryHandler
+  implements ICommandHandler<RemoveEggInventoryCommand>
+{
   constructor(
     @InjectRepository(EggInventory)
     private readonly eggInventoryRepository: Repository<EggInventory>,

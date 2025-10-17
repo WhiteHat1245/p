@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { Farm } from './Farm';
 import { Poultry } from './Poultry';
 import { EggProduction } from './EggProduction';
@@ -27,15 +33,24 @@ export class Coop {
   @OneToMany(() => Poultry, (poultry: Poultry) => poultry.Coop)
   Poultries: Poultry[];
 
-  @OneToMany(() => EggProduction, (eggProduction: EggProduction) => eggProduction.Coop)
+  @OneToMany(
+    () => EggProduction,
+    (eggProduction: EggProduction) => eggProduction.Coop,
+  )
   EggProductions: EggProduction[];
 
   @OneToMany(() => Mortality, (mortality: Mortality) => mortality.Coop)
   Mortalities: Mortality[];
 
-  @OneToMany(() => TreatmentSchedule, (treatmentSchedule: TreatmentSchedule) => treatmentSchedule.Coop)
+  @OneToMany(
+    () => TreatmentSchedule,
+    (treatmentSchedule: TreatmentSchedule) => treatmentSchedule.Coop,
+  )
   TreatmentSchedules: TreatmentSchedule[];
 
-  @OneToMany(() => PoultryBatch, (poultryBatch: PoultryBatch) => poultryBatch.Coop)
+  @OneToMany(
+    () => PoultryBatch,
+    (poultryBatch: PoultryBatch) => poultryBatch.Coop,
+  )
   PoultryBatches: PoultryBatch[];
 }

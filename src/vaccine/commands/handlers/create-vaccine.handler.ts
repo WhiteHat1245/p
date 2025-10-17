@@ -6,7 +6,9 @@ import { CreateVaccineCommand } from '../impl/create-vaccine.command';
 import { Vaccine } from 'src/Core Models/vaccine';
 
 @CommandHandler(CreateVaccineCommand)
-export class CreateVaccineHandler implements ICommandHandler<CreateVaccineCommand> {
+export class CreateVaccineHandler
+  implements ICommandHandler<CreateVaccineCommand>
+{
   constructor(
     @InjectRepository(Vaccine)
     private readonly vaccineRepository: Repository<Vaccine>,
@@ -22,7 +24,9 @@ export class CreateVaccineHandler implements ICommandHandler<CreateVaccineComman
       today.setHours(0, 0, 0, 0); // Reset time for accurate date comparison
 
       if (expirationDate < today) {
-        throw new BadRequestException('لا يمكن إنشاء سجل لقاح بتاريخ صلاحية منتهٍ. يرجى التحقق من التاريخ.');
+        throw new BadRequestException(
+          'لا يمكن إنشاء سجل لقاح بتاريخ صلاحية منتهٍ. يرجى التحقق من التاريخ.',
+        );
       }
     }
 

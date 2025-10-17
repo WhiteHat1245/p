@@ -13,6 +13,8 @@ export class GetPurchasesHandler implements IQueryHandler<GetPurchasesQuery> {
   ) {}
 
   async execute(): Promise<Purchase[]> {
-    return this.purchaseRepository.find({ relations: ['Supplier', 'PurchaseDetails'] });
+    return this.purchaseRepository.find({
+      relations: ['Supplier', 'PurchaseDetails'],
+    });
   }
 }

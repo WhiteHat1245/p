@@ -11,7 +11,11 @@ import { UpdateSlaughterhouseHandler } from './Commands/handlers/update-slaughte
 import { RemoveSlaughterhouseHandler } from './Commands/handlers/remove-slaughterhouse.handler';
 import { Slaughterhouse } from 'src/Core Models/slaughterhouse';
 
-const CommandHandlers = [CreateSlaughterhouseHandler, UpdateSlaughterhouseHandler, RemoveSlaughterhouseHandler];
+const CommandHandlers = [
+  CreateSlaughterhouseHandler,
+  UpdateSlaughterhouseHandler,
+  RemoveSlaughterhouseHandler,
+];
 const QueryHandlers = [GetSlaughterhouseHandler, GetSlaughterhousesHandler];
 
 @Module({

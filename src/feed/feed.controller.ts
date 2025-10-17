@@ -23,7 +23,10 @@ import { Feed } from 'src/Core Models/Feed';
 
 @Controller('feed')
 export class FeedController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateFeedDto): Promise<Feed> {

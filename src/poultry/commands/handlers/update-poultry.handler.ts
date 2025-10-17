@@ -7,7 +7,9 @@ import { UpdatePoultryCommand } from '../impl/update-poultry.command.js';
 import { Poultry } from '../../../Core Models/Poultry';
 
 @CommandHandler(UpdatePoultryCommand)
-export class UpdatePoultryHandler implements ICommandHandler<UpdatePoultryCommand> {
+export class UpdatePoultryHandler
+  implements ICommandHandler<UpdatePoultryCommand>
+{
   constructor(
     @InjectRepository(Poultry)
     private readonly poultryRepository: Repository<Poultry>,
@@ -15,7 +17,10 @@ export class UpdatePoultryHandler implements ICommandHandler<UpdatePoultryComman
 
   async execute(command: UpdatePoultryCommand): Promise<Poultry> {
     const { id, updatePoultryDto } = command;
-    const poultry = await this.poultryRepository.preload({ PoultryID: id, ...updatePoultryDto });
+    const poultry = await this.poultryRepository.preload({
+      PoultryID: id,
+      ...updatePoultryDto,
+    });
     if (!poultry) {
       throw new NotFoundException(`Poultry with ID ${id} not found`);
     }

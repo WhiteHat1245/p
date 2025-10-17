@@ -7,7 +7,9 @@ import { UpdateSupplierCommand } from '../impl/update-supplier.command';
 import { Supplier } from 'src/Core Models/Supplier';
 
 @CommandHandler(UpdateSupplierCommand)
-export class UpdateSupplierHandler implements ICommandHandler<UpdateSupplierCommand> {
+export class UpdateSupplierHandler
+  implements ICommandHandler<UpdateSupplierCommand>
+{
   constructor(
     @InjectRepository(Supplier)
     private readonly supplierRepository: Repository<Supplier>,
@@ -15,7 +17,10 @@ export class UpdateSupplierHandler implements ICommandHandler<UpdateSupplierComm
 
   async execute(command: UpdateSupplierCommand): Promise<Supplier> {
     const { id, updateSupplierDto } = command;
-    const supplier = await this.supplierRepository.preload({ SupplierID: id, ...updateSupplierDto });
+    const supplier = await this.supplierRepository.preload({
+      SupplierID: id,
+      ...updateSupplierDto,
+    });
     if (!supplier) {
       throw new NotFoundException(`Supplier with ID ${id} not found`);
     }

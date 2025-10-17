@@ -1,4 +1,9 @@
-import { IsNumber, IsNotEmpty, IsDateString, IsPositive } from 'class-validator';
+import {
+  IsNumber,
+  IsNotEmpty,
+  IsDateString,
+  IsPositive,
+} from 'class-validator';
 
 export class CreateEggInventoryDto {
   @IsNumber()

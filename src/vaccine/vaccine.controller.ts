@@ -10,7 +10,6 @@ import {
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 
-
 // استيراد الأوامر والاستعلامات
 import { CreateVaccineCommand } from './commands/impl/create-vaccine.command';
 import { UpdateVaccineCommand } from './commands/impl/update-vaccine.command';
@@ -23,7 +22,10 @@ import { UpdateVaccineDto } from './dto/update-vaccine.dto.ts/update-vaccine.dto
 
 @Controller('vaccine')
 export class VaccineController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateVaccineDto): Promise<Vaccine> {

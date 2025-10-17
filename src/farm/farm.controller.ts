@@ -20,10 +20,12 @@ import { CreateFarmDto } from './dto/create-farm.dto.ts/create-farm.dto.ts';
 import { GetFarmsQuery } from './queries/impl/et-farms.query';
 import { UpdateFarmDto } from './dto/update-farm.dto.ts/update-farm.dto.ts';
 
-
 @Controller('farm')
 export class FarmController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateFarmDto): Promise<Farm> {

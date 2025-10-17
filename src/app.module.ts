@@ -62,25 +62,65 @@ import { VaccineModule } from './vaccine/vaccine.module';
 import { DailyReportModule } from './DailyReport/DailyReport.Module';
 import { DebtModule } from './Debt/debt.module';
 import { EggInventoryModule } from './EggInventory/EggInventory.Module';
+import { SalesReturnModule } from './SalesReturn/SalesReturn.Module';
+import { AttendanceModule } from './attendance/attendance.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',  // أو اسم الخادم الخاص بك
-      port: 5432,         // المنفذ الافتراضي لـ PostgreSQL
-      username: 'Zafer', // اسم المستخدم الخاص بك
+      host: 'localhost', // أو اسم الخادم الخاص بك
+      port: 5432, // المنفذ الافتراضي لـ PostgreSQL
+      username: 'postgres', // اسم المستخدم الخاص بك
       password: 'zafer4519932093', // كلمة المرور الخاصة بك
       database: 'poultry_farm_db', // اسم قاعدة البيانات
-      synchronize: true,  // **هام:** قم بتغيير هذا إلى false في بيئة الإنتاج
+      synchronize: true, // **هام:** قم بتغيير هذا إلى false في بيئة الإنتاج
       entities: [
-        Poultry, Breed, Coop, Farm, EggProduction, FrozenPoultryInventory, SpoilageLoss, 
-        InventoryTakeDetail, Feed, Medication, FeedConsumption, Mortality, TreatmentSchedule, 
-        Purchase, PurchaseReturn, PurchaseReturnDetail, Sale, SalesReturn, SalesReturnDetail, 
-        Supplier, Customer, User, Role, Employee, Expense, PaymentMethod, Payment, Debt, 
-        GeneralLedger, ChartOfAccounts, VaccinationSchedule, HealthLog, Attendance, Payroll, 
-        DailyReport, PerformanceMetric, Equipment, MaintenanceSchedule, BiosecurityLog, 
-        QualityControl, FinancialTransaction, PoultryBatch, EggInventory, Receipt,PurchaseDetail
+        Poultry,
+        Breed,
+        Coop,
+        Farm,
+        EggProduction,
+        FrozenPoultryInventory,
+        SpoilageLoss,
+        InventoryTakeDetail,
+        Feed,
+        Medication,
+        FeedConsumption,
+        Mortality,
+        TreatmentSchedule,
+        Purchase,
+        PurchaseReturn,
+        PurchaseReturnDetail,
+        Sale,
+        SalesReturn,
+        SalesReturnDetail,
+        Supplier,
+        Customer,
+        User,
+        Role,
+        Employee,
+        Expense,
+        PaymentMethod,
+        Payment,
+        Debt,
+        GeneralLedger,
+        ChartOfAccounts,
+        VaccinationSchedule,
+        HealthLog,
+        Attendance,
+        Payroll,
+        DailyReport,
+        PerformanceMetric,
+        Equipment,
+        MaintenanceSchedule,
+        BiosecurityLog,
+        QualityControl,
+        FinancialTransaction,
+        PoultryBatch,
+        EggInventory,
+        Receipt,
+        PurchaseDetail,
       ],
     }),
     PoultryModule,
@@ -94,8 +134,10 @@ import { EggInventoryModule } from './EggInventory/EggInventory.Module';
     BreedModule,
     VaccineModule,
     DailyReportModule,
-    DebtModule, 
+    DebtModule,
     EggInventoryModule,
+    SalesReturnModule,
+    AttendanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],

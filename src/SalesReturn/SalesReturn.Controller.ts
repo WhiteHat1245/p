@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateSalesReturnDto } from './dto/CreateSalesReturnDto';
 import { CreateSalesReturnCommand } from './Command/Impl/createSalesReturnDto';
@@ -9,7 +17,10 @@ import { GetSalesReturnsQuery } from './Queries/Impl/GetSalesReturnsQuery';
 
 @Controller('sales-return')
 export class SalesReturnController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Post()
   create(@Body() dto: CreateSalesReturnDto): Promise<SalesReturn> {

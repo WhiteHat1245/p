@@ -14,7 +14,9 @@ export class GetExpenseHandler implements IQueryHandler<GetExpenseQuery> {
 
   async execute(query: GetExpenseQuery): Promise<Expense> {
     const { expenseId } = query;
-    const expense = await this.expenseRepository.findOne({ where: { ExpenseID: expenseId } });
+    const expense = await this.expenseRepository.findOne({
+      where: { ExpenseID: expenseId },
+    });
 
     if (!expense) {
       throw new NotFoundException(`Expense with ID ${expenseId} not found`);

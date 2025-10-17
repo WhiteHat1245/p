@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { Coop } from './Coop';
 import { Breed } from './Breed';
 import { HealthLog } from './HealthLog';
@@ -27,8 +33,9 @@ export class Poultry {
   @OneToMany(() => HealthLog, (healthLog: HealthLog) => healthLog.Poultry)
   HealthLogs: HealthLog[];
 
-  @OneToMany(() => PurchaseDetail, (purchaseDetail: PurchaseDetail) => purchaseDetail.Poultry)
+  @OneToMany(
+    () => PurchaseDetail,
+    (purchaseDetail: PurchaseDetail) => purchaseDetail.Poultry,
+  )
   PurchaseDetails: PurchaseDetail[];
 }
-
-

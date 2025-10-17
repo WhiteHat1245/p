@@ -23,14 +23,20 @@ export class CreateSaleHandler implements ICommandHandler<CreateSaleCommand> {
       const inventoryRepository = manager.getRepository(FrozenPoultryInventory);
 
       for (const detail of createSaleDto.saleDetails) {
-        const inventoryItem = await inventoryRepository.findOne({ where: { PoultryTypeID: detail.itemID } });
+        const inventoryItem = await inventoryRepository.findOne({
+          where: { PoultryTypeID: detail.itemID },
+        });
 
         if (!inventoryItem) {
-          throw new NotFoundException(`Item with ID ${detail.itemID} not found in inventory.`);
+          throw new NotFoundException(
+            `Item with ID ${detail.itemID} not found in inventory.`,
+          );
         }
 
         if (inventoryItem.Quantity < detail.quantity) {
-          throw new BadRequestException(`Insufficient stock for item with ID ${detail.itemID}.`);
+          throw new BadRequestException(
+            `Insufficient stock for item with ID ${detail.itemID}.`,
+          );
         }
 
         inventoryItem.Quantity -= detail.quantity;

@@ -9,7 +9,10 @@ export class CreateCoopCommand {
 import { UpdateCoopDto } from '../../dto/update-coop.dto';
 
 export class UpdateCoopCommand {
-  constructor(public readonly id: number, public readonly updateCoopDto: UpdateCoopDto) {}
+  constructor(
+    public readonly id: number,
+    public readonly updateCoopDto: UpdateCoopDto,
+  ) {}
 }
 
 // src/coop/commands/impl/remove-coop.command.ts

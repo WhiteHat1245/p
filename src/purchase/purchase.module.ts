@@ -15,11 +15,22 @@ import { Purchase } from 'src/Core Models/Purchase ';
 import { FrozenPoultryInventory } from 'src/Core Models/FrozenPoultryInventory';
 import { PurchaseDetail } from 'src/Core Models/purchase-detail';
 
-const CommandHandlers = [CreatePurchaseHandler, UpdatePurchaseHandler, RemovePurchaseHandler];
+const CommandHandlers = [
+  CreatePurchaseHandler,
+  UpdatePurchaseHandler,
+  RemovePurchaseHandler,
+];
 const QueryHandlers = [GetPurchaseHandler, GetPurchasesHandler];
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Purchase, PurchaseDetail, FrozenPoultryInventory]), CqrsModule],
+  imports: [
+    TypeOrmModule.forFeature([
+      Purchase,
+      PurchaseDetail,
+      FrozenPoultryInventory,
+    ]),
+    CqrsModule,
+  ],
   controllers: [PurchaseController],
   providers: [...CommandHandlers, ...QueryHandlers],
 })
