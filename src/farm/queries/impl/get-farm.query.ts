@@ -1,3 +1,3 @@
 export class GetFarmQuery {
-  constructor(public readonly farmId: number) {}
+  constructor(public readonly farmId: string) {}
 }

@@ -16,7 +16,7 @@ export class GetFarmHandler implements IQueryHandler<GetFarmQuery> {
   async execute(query: GetFarmQuery): Promise<Farm> {
     const { farmId } = query;
     const farm = await this.farmRepository.findOne({
-      where: { FarmID: farmId },
+      where: { FarmID: parseInt(farmId, 10) },
       relations: ['Coops', 'Employees'],
     });
     if (!farm) {

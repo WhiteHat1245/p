@@ -34,7 +34,7 @@ export class FarmController {
 
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number): Promise<Farm> {
-    return this.queryBus.execute(new GetFarmQuery(id));
+    return this.queryBus.execute(new GetFarmQuery(id.toString()));
   }
 
   @Get()

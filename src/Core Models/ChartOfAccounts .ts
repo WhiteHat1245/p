@@ -1,6 +1,6 @@
 // في ملف: src/chart-of-accounts/chart-of-accounts.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { FinancialTransaction } from '../financial-transaction/financial-transaction.entity';
+import { FinancialTransaction } from './FinancialTransaction';
 
 @Entity()
 export class ChartOfAccounts {
@@ -15,14 +15,14 @@ export class ChartOfAccounts {
 
   // علاقات ذاتية المرجعية
   @OneToMany(
-    () => FinancialTransaction,
-    (transaction) => transaction.DebitAccount,
+    () => FinancialTransaction, 
+    (transaction: FinancialTransaction) => transaction.DebitAccount,
   )
   DebitTransactions: FinancialTransaction[];
 
   @OneToMany(
-    () => FinancialTransaction,
-    (transaction) => transaction.CreditAccount,
+    () => FinancialTransaction, 
+    (transaction: FinancialTransaction) => transaction.CreditAccount,
   )
   CreditTransactions: FinancialTransaction[];
 }
