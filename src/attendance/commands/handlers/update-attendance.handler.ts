@@ -1,4 +1,3 @@
-
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -7,7 +6,9 @@ import { UpdateAttendanceCommand } from '../impl/update-attendance.command';
 import { Attendance } from '../../../Core Models/Attendance';
 
 @CommandHandler(UpdateAttendanceCommand)
-export class UpdateAttendanceHandler implements ICommandHandler<UpdateAttendanceCommand> {
+export class UpdateAttendanceHandler
+  implements ICommandHandler<UpdateAttendanceCommand>
+{
   constructor(
     @InjectRepository(Attendance)
     private readonly attendanceRepository: Repository<Attendance>,

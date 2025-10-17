@@ -1,8 +1,21 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { CqrsModule } from '@nestjs/cqrs';
 import { AttendanceController } from './attendance.controller';
+import { Attendance } from '../Core Models/Attendance';
+import { CreateAttendanceHandler } from './commands/handlers/create-attendance.handler';
+import { UpdateAttendanceHandler } from './commands/handlers/update-attendance.handler';
+import { RemoveAttendanceHandler } from './commands/handlers/remove-attendance.handler';
+
+const CommandHandlers = [
+  CreateAttendanceHandler,
+  UpdateAttendanceHandler,
+  RemoveAttendanceHandler,
+];
 
 @Module({
+  imports: [TypeOrmModule.forFeature([Attendance]), CqrsModule],
   controllers: [AttendanceController],
-  providers: [],
+  providers: [...CommandHandlers],
 })
 export class AttendanceModule {}
