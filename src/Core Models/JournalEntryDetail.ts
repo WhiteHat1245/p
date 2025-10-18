@@ -7,7 +7,7 @@ export class JournalEntryDetail {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => JournalEntry, journalEntry => journalEntry.details)
+  @ManyToOne(() => JournalEntry, (journalEntry) => journalEntry.details)
   journalEntry: JournalEntry;
 
   @ManyToOne(() => ChartOfAccounts)

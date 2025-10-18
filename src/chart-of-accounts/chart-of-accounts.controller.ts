@@ -13,7 +13,9 @@ export class ChartOfAccountsController {
   ) {}
 
   @Post('journal-entry')
-  async createJournalEntry(@Body() createJournalEntryDto: CreateJournalEntryDto) {
+  async createJournalEntry(
+    @Body() createJournalEntryDto: CreateJournalEntryDto,
+  ) {
     return this.commandBus.execute(
       new CreateJournalEntryCommand(createJournalEntryDto),
     );

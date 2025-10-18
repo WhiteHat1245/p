@@ -1,6 +1,18 @@
+import { IsString, IsNotEmpty, IsOptional, IsDateString } from 'class-validator';
+
 export class CreateEquipmentDto {
+  @IsString()
+  @IsNotEmpty()
   Name: string;
-  Description: string | null;
+
+  @IsString()
+  @IsOptional()
+  Description: string;
+
+  @IsDateString()
   PurchaseDate: Date;
+
+  @IsString()
+  @IsNotEmpty()
   Status: string;
 }

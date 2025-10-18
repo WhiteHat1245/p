@@ -1,3 +1,3 @@
 export class DeleteEquipmentCommand {
-    constructor(public readonly id: number) {}
+  constructor(public readonly id: number) {}
 }

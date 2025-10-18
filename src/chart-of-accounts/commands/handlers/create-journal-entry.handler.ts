@@ -2,16 +2,18 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { CreateJournalEntryCommand } from '../create-journal-entry.command';
 
 @CommandHandler(CreateJournalEntryCommand)
-export class CreateJournalEntryHandler implements ICommandHandler<CreateJournalEntryCommand> {
+export class CreateJournalEntryHandler
+  implements ICommandHandler<CreateJournalEntryCommand>
+{
   async execute(command: CreateJournalEntryCommand): Promise<any> {
     const { entries } = command.createJournalEntryDto;
 
     const totalDebits = entries
-      .filter(e => e.type === 'DEBIT')
+      .filter((e) => e.type === 'DEBIT')
       .reduce((acc, entry) => acc + entry.amount, 0);
 
     const totalCredits = entries
-      .filter(e => e.type === 'CREDIT')
+      .filter((e) => e.type === 'CREDIT')
       .reduce((acc, entry) => acc + entry.amount, 0);
 
     if (totalDebits !== totalCredits) {

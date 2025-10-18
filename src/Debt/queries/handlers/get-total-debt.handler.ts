@@ -9,7 +9,7 @@ export class GetTotalDebtHandler {
     private readonly debtRepository: Repository<Debt>,
   ) {}
 
-  async execute(query: GetTotalDebtQuery): Promise<Number> {
+  async execute(query: GetTotalDebtQuery): Promise<number> {
     const { customerId } = query;
     const result = await this.debtRepository
       .createQueryBuilder('debt')

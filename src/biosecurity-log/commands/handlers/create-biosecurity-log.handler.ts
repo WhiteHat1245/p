@@ -15,7 +15,9 @@ export class CreateBiosecurityLogHandler
 
   async execute(command: CreateBiosecurityLogCommand): Promise<BiosecurityLog> {
     const { createBiosecurityLogDto: createBiosecurityLogDto } = command;
-    const log = this.repository.create(createBiosecurityLogDto as BiosecurityLog);
+    const log = this.repository.create(
+      createBiosecurityLogDto as BiosecurityLog,
+    );
     return this.repository.save(log);
   }
 }

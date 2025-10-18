@@ -1,6 +1,6 @@
 // في ملف: src/maintenance-schedule/maintenance-schedule.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Equipment } from '../equipment/equipment.entity';
+import { Equipment } from './Equipment';
 
 @Entity()
 export class MaintenanceSchedule {

@@ -13,7 +13,9 @@ export class GetBiosecurityLogByIdHandler
     private readonly repository: Repository<BiosecurityLog>,
   ) {}
 
-  async execute(query: GetBiosecurityLogByIdQuery): Promise<BiosecurityLog | null> {
+  async execute(
+    query: GetBiosecurityLogByIdQuery,
+  ): Promise<BiosecurityLog | null> {
     const { id } = query;
     return await this.repository.findOneBy({ LogID: id });
   }

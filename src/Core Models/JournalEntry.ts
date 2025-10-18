@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+} from 'typeorm';
 import { JournalEntryDetail } from './JournalEntryDetail';
 
 @Entity()
@@ -12,6 +18,8 @@ export class JournalEntry {
   @Column()
   memo: string;
 
-  @OneToMany(() => JournalEntryDetail, detail => detail.journalEntry, { cascade: true })
+  @OneToMany(() => JournalEntryDetail, (detail) => detail.journalEntry, {
+    cascade: true,
+  })
   details: JournalEntryDetail[];
 }

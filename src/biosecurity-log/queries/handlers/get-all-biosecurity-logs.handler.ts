@@ -6,7 +6,8 @@ import { BiosecurityLog } from 'src/Core Models/BiosecurityLog';
 
 @QueryHandler(GetAllBiosecurityLogsQuery)
 export class GetAllBiosecurityLogsHandler
-  implements IQueryHandler<GetAllBiosecurityLogsQuery, BiosecurityLog[]> {
+  implements IQueryHandler<GetAllBiosecurityLogsQuery, BiosecurityLog[]>
+{
   constructor(
     @InjectRepository(BiosecurityLog)
     private readonly repository: Repository<BiosecurityLog>,

@@ -1,13 +1,13 @@
-// في ملف: src/app.module.ts
-import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { Poultry } from './Core Models/Poultry';
+import { ChartOfAccountsModule } from './chart-of-accounts/chart-of-accounts.module';
+import { EquipmentModule } from './equipment/equipment.module';
+import { AttendanceModule } from './attendance/attendance.module';
+import { Module } from '@nestjs/common';
 import { Breed } from './Core Models/Breed';
 import { Coop } from './Core Models/Coop';
 import { Farm } from './Core Models/Farm';
 import { EggProduction } from './Core Models/EggProduction';
+import { Poultry } from './Core Models/Poultry';
 import { FrozenPoultryInventory } from './Core Models/FrozenPoultryInventory';
 import { SpoilageLoss } from './Core Models/SpoilageLoss';
 import { InventoryTakeDetail } from './Core Models/InventoryTakeDetail';
@@ -46,26 +46,25 @@ import { QualityControl } from './Core Models/QualityControl';
 import { FinancialTransaction } from './Core Models/FinancialTransaction';
 import { PoultryBatch } from './Core Models/PoultryBatch';
 import { EggInventory } from './Core Models/EggInventory';
-
 import { Receipt } from './Core Models/Receipt';
-import { PoultryModule } from './poultry/poultry.module';
-import { SaleModule } from './sale/sale.module';
-import { CustomerModule } from './customer/customer.module';
-import { EmployeeModule } from './employee/employee.module';
-import { FarmModule } from './farm/farm.module';
-import { PurchaseModule } from './purchase/purchase.module';
 import { PurchaseDetail } from './Core Models/purchase-detail';
-import { SupplierModule } from './supplier/supplier.module';
-import { HealthLogModule } from './health-log/health-log.module';
+import { EmployeeModule } from './employee/employee.module';
+import { SaleModule } from './sale/sale.module';
+import { PoultryModule } from './poultry/poultry.module';
+import { CustomerModule } from './customer/customer.module';
+import { BiosecurityLogModule } from './biosecurity-log/biosecurity-log.module';
+import { SalesReturnModule } from './SalesReturn/SalesReturn.Module';
+import { EggInventoryModule } from './EggInventory/EggInventory.Module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { BreedModule } from './breed/breed.module';
-import { VaccineModule } from './vaccine/vaccine.module';
 import { DailyReportModule } from './DailyReport/DailyReport.Module';
 import { DebtModule } from './Debt/debt.module';
-import { EggInventoryModule } from './EggInventory/EggInventory.Module';
-import { SalesReturnModule } from './SalesReturn/SalesReturn.Module';
-import { AttendanceModule } from './attendance/attendance.module';
-import { BiosecurityLogModule } from './biosecurity-log/biosecurity-log.module';
-import { ChartOfAccountsModule } from './chart-of-accounts/chart-of-accounts.module';
+import { FarmModule } from './farm/farm.module';
+import { HealthLogModule } from './health-log/health-log.module';
+import { PurchaseModule } from './purchase/purchase.module';
+import { SupplierModule } from './supplier/supplier.module';
+import { VaccineModule } from './vaccine/vaccine.module';
 
 @Module({
   imports: [
@@ -142,6 +141,7 @@ import { ChartOfAccountsModule } from './chart-of-accounts/chart-of-accounts.mod
     AttendanceModule,
     BiosecurityLogModule,
     ChartOfAccountsModule,
+    EquipmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

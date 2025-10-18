@@ -16,7 +16,10 @@ const CommandHandlers = [
   UpdateBiosecurityLogHandler,
   CreateBiosecurityLogHandler,
 ];
-const QueryHandlers = [GetBiosecurityLogByIdHandler, GetBiosecurityLogByIdHandler];
+const QueryHandlers = [
+  GetBiosecurityLogByIdHandler,
+  GetBiosecurityLogByIdHandler,
+];
 
 @Module({
   imports: [TypeOrmModule.forFeature([BiosecurityLog]), CqrsModule],

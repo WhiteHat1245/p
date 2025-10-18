@@ -19,6 +19,6 @@ export class CreateSlaughterhouseHandler
     const slaughterhouse = this.slaughterhouseRepository.create(
       createSlaughterhouseDto as Partial<Slaughterhouse>,
     );
-    return this.slaughterhouseRepository.save(slaughterhouse as Slaughterhouse);
+    return this.slaughterhouseRepository.save(slaughterhouse);
   }
 }
