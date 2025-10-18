@@ -65,6 +65,7 @@ import { EggInventoryModule } from './EggInventory/EggInventory.Module';
 import { SalesReturnModule } from './SalesReturn/SalesReturn.Module';
 import { AttendanceModule } from './attendance/attendance.module';
 import { BiosecurityLogModule } from './biosecurity-log/biosecurity-log.module';
+import { ChartOfAccountsModule } from './chart-of-accounts/chart-of-accounts.module';
 
 @Module({
   imports: [
@@ -140,6 +141,8 @@ import { BiosecurityLogModule } from './biosecurity-log/biosecurity-log.module';
     SalesReturnModule,
     AttendanceModule,
     BiosecurityLogModule,
+    ChartOfAccountsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
