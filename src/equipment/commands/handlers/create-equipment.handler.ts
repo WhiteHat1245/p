@@ -1,8 +1,9 @@
+// src/equipment/commands/handlers/create-equipment.handler.ts
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { CreateEquipmentCommand } from '../create-equipment.command';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Equipment } from 'src/Core Models/Equipment';
 import { Repository } from 'typeorm';
+import { CreateEquipmentCommand } from '../impl/create-equipment.command';
+import { Equipment } from 'src/Core Models/Equipment';
 
 @CommandHandler(CreateEquipmentCommand)
 export class CreateEquipmentHandler
@@ -14,9 +15,8 @@ export class CreateEquipmentHandler
   ) {}
 
   async execute(command: CreateEquipmentCommand): Promise<Equipment> {
-    const newEquipment = this.equipmentRepository.create(
-      command.createEquipmentDto,
-    );
-    return this.equipmentRepository.save(newEquipment);
+    const { createEquipmentDto } = command;
+    const equipment = this.equipmentRepository.create(createEquipmentDto);
+    return this.equipmentRepository.save(equipment);
   }
 }

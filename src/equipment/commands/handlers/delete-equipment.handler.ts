@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { DeleteEquipmentCommand } from '../delete-equipment.command';
+import { DeleteEquipmentCommand } from '../impl/delete-equipment.command';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Equipment } from 'src/Core Models/Equipment';
 import { Repository } from 'typeorm';
