@@ -67,6 +67,7 @@ import { SupplierModule } from './supplier/supplier.module';
 import { VaccineModule } from './vaccine/vaccine.module';
 import { FeedConsumptionModule } from './feed-consumption/feed-consumption.module';
 import { FinancialTransactionModule } from './financial-transaction/financial-transaction.module';
+import { FrozenPoultryInventoryModule } from './frozen-poultry-inventory/frozen-poultry-inventory.module';
 
 @Module({
   imports: [
@@ -145,7 +146,8 @@ import { FinancialTransactionModule } from './financial-transaction/financial-tr
     ChartOfAccountsModule,
     EquipmentModule,
     FeedConsumptionModule,
-    FinancialTransactionModule
+    FinancialTransactionModule,
+    FrozenPoultryInventoryModule
   ],
   controllers: [AppController],
   providers: [AppService],
