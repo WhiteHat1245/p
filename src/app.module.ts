@@ -65,6 +65,8 @@ import { HealthLogModule } from './health-log/health-log.module';
 import { PurchaseModule } from './purchase/purchase.module';
 import { SupplierModule } from './supplier/supplier.module';
 import { VaccineModule } from './vaccine/vaccine.module';
+import { FeedConsumptionModule } from './feed-consumption/feed-consumption.module';
+import { FinancialTransactionModule } from './financial-transaction/financial-transaction.module';
 
 @Module({
   imports: [
@@ -142,6 +144,8 @@ import { VaccineModule } from './vaccine/vaccine.module';
     BiosecurityLogModule,
     ChartOfAccountsModule,
     EquipmentModule,
+    FeedConsumptionModule,
+    FinancialTransactionModule
   ],
   controllers: [AppController],
   providers: [AppService],

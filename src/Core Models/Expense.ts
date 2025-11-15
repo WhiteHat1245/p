@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Employee } from './Employee ';
 @Entity()
 export class Expense {
   @PrimaryGeneratedColumn()
