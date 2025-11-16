@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { DynamicModule, ForwardReference, Module, Type } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MaintenanceScheduleController } from './maintenance-schedule.controller';
@@ -21,4 +21,6 @@ export const QueryHandlers = [GetMaintenanceScheduleHandler, GetMaintenanceSched
     ...QueryHandlers,
   ],
 })
-export class MaintenanceScheduleModule {}
+export class MaintenanceScheduleModule {
+  static MedicationModule: Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference<any>;
+}

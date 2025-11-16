@@ -69,7 +69,9 @@ import { FeedConsumptionModule } from './feed-consumption/feed-consumption.modul
 import { FinancialTransactionModule } from './financial-transaction/financial-transaction.module';
 import { FrozenPoultryInventoryModule } from './frozen-poultry-inventory/frozen-poultry-inventory.module';
 import { GeneralLedgerModule } from './general-ledger/general-ledger.module';
-import { JournalEntryModule } from './journal-entry/journal-entry.module';
+import { MaintenanceScheduleModule } from './maintenance-schedule/maintenance-schedule.module';
+import { PaymentModule } from './payment/payment.module';
+import { PaymentMethodModule } from './payment-method/payment-method.module';
 
 @Module({
   imports: [
@@ -151,7 +153,10 @@ import { JournalEntryModule } from './journal-entry/journal-entry.module';
     FinancialTransactionModule,
     FrozenPoultryInventoryModule,
     GeneralLedgerModule,
-    JournalEntryModule
+    MaintenanceScheduleModule.
+    MedicationModule,
+    PaymentModule,
+    PaymentMethodModule,
   ],
   controllers: [AppController],
   providers: [AppService],
