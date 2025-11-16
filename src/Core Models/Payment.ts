@@ -28,7 +28,7 @@ export class Payment {
   @ManyToOne(() => Purchase, (purchase) => purchase.Payments)
   Purchase: Purchase;
 
-  @ManyToOne(() => Supplier, (supplier) => supplier.Payments)
+    @ManyToOne(() => Supplier, (supplier) => supplier.Debts)
   Supplier: Supplier;
 
   @ManyToOne(() => PaymentMethod, (paymentMethod) => paymentMethod.Payments)

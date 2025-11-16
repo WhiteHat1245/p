@@ -7,6 +7,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 import { PurchaseReturn } from './PurchaseReturn';
+import { PurchaseDetail } from './purchase-detail';
 @Entity()
 export class PurchaseReturnDetail {
   @PrimaryGeneratedColumn()
