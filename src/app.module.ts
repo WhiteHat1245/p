@@ -68,6 +68,7 @@ import { VaccineModule } from './vaccine/vaccine.module';
 import { FeedConsumptionModule } from './feed-consumption/feed-consumption.module';
 import { FinancialTransactionModule } from './financial-transaction/financial-transaction.module';
 import { FrozenPoultryInventoryModule } from './frozen-poultry-inventory/frozen-poultry-inventory.module';
+import { GeneralLedgerModule } from './general-ledger/general-ledger.module';
 
 @Module({
   imports: [
@@ -147,7 +148,8 @@ import { FrozenPoultryInventoryModule } from './frozen-poultry-inventory/frozen-
     EquipmentModule,
     FeedConsumptionModule,
     FinancialTransactionModule,
-    FrozenPoultryInventoryModule
+    FrozenPoultryInventoryModule,
+    GeneralLedgerModule
   ],
   controllers: [AppController],
   providers: [AppService],
