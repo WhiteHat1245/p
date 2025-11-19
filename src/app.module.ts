@@ -72,6 +72,9 @@ import { GeneralLedgerModule } from './general-ledger/general-ledger.module';
 import { MaintenanceScheduleModule } from './maintenance-schedule/maintenance-schedule.module';
 import { PaymentModule } from './payment/payment.module';
 import { PaymentMethodModule } from './payment-method/payment-method.module';
+import { PayrollModule } from './payroll/payroll.module';
+import { PerformanceMetricModule } from './performance-metric/performance-metric.module';
+import { PoultryBatchModule } from './poultry-batch/poultry-batch.module';
 
 @Module({
   imports: [
@@ -153,10 +156,13 @@ import { PaymentMethodModule } from './payment-method/payment-method.module';
     FinancialTransactionModule,
     FrozenPoultryInventoryModule,
     GeneralLedgerModule,
-    MaintenanceScheduleModule.
-    MedicationModule,
+    MaintenanceScheduleModule,
     PaymentModule,
     PaymentMethodModule,
+    PayrollModule,
+    PurchaseModule, // Removed the trailing comma and undefined module
+    PerformanceMetricModule,
+    PoultryBatchModule
   ],
   controllers: [AppController],
   providers: [AppService],
